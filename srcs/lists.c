@@ -24,17 +24,17 @@ t_lst_st *add_new_back(t_stack *stack, int nbr)
 
 void    add_element_front(t_stack *stack, t_lst_st *element)
 {
+
+    element->prev = 0;
+    element->next = 0;
     if (!stack->start)
     {
-        element->prev = 0;
-        element->next = 0;
         stack->start = element;
         stack->end = element;
         stack->size = 1;
     }
     else
     {
-        element->prev = 0;
         element->next = stack->start;
         stack->start = element;
         stack->size++;
@@ -43,6 +43,8 @@ void    add_element_front(t_stack *stack, t_lst_st *element)
 
 void    add_element_back(t_stack *stack, t_lst_st *element)
 {
+    element->prev = 0;
+    element->next = 0;
     if (!stack->start)
     {
         stack->start = element;
@@ -60,11 +62,16 @@ void    add_element_back(t_stack *stack, t_lst_st *element)
 
 void remove_element(t_stack *stack, t_lst_st *element)
 {
-    if (!element->prev)
-        stack->start = element->next;
-    if (!element->next)
-        stack->end = element->prev;
-    element->prev->next = element->next;
-    element->next->prev = element->prev;
-    stack->size--;
+    if (stack && element)
+    {
+        if (!element->prev)
+            stack->start = element->next;
+        else
+            element->prev->next = element->next;
+        if (!element->next)
+            stack->end = element->prev;
+        else        
+            element->next->prev = element->prev;
+        stack->size--;
+    }
 }
