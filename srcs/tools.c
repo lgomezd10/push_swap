@@ -14,14 +14,14 @@ int is_sort_increasing(t_lst_st *list)
     return (1);    
 }
 
-int is_sort_decreasing(t_stack *stack)
+int is_sort_decreasing(t_lst_st *list)
 {
     t_lst_st *temp;
 
-    temp = stack->start;
+    temp = list;
     while (temp && temp->next)
     {
-        if (temp->next->nbr < temp->nbr)
+        if (temp->nbr < temp->next->nbr)
             return (0);
         temp = temp->next;
     }
@@ -62,4 +62,30 @@ void move_up(t_data *data, int nbr)
         pos++;
         temp = temp->next;
     }
+}
+
+int get_middle(t_stack *stack)
+{
+    int *values;
+    int value;
+    int i;
+    t_lst_st *temp;
+
+    values = (int *)ft_calloc(sizeof(int), stack->size);
+    printf("el tamaño del array %d\n", stack->size);
+    if (!values)
+        show_error();
+    i = 0;
+    while (temp && i < stack->size)
+    {
+        printf("en el while %d\n", i);
+        values[i] = temp->nbr;
+        printf("antes de pasar %d\n", i);
+        temp = temp->next;
+        i++;
+        printf("añadido el valor %d en interaccion %d\n", values[i], i);
+    }
+    value = values[i / 2];
+    free(values);
+    return (value);
 }

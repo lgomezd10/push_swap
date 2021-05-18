@@ -48,9 +48,30 @@ int main(void)
         i++;
         printf("añadido %d\n", pila[i]);
     }
+    /*
+    i = 0;
+    while (pila[i] != 0)
+    {
+        printf("añadiendo %d\n", pila[i]);
+        add_new_back(stackB, pila[i]);
+        i++;
+        printf("añadido %d\n", pila[i]);
+    }
+    */
     print_stack(stackA, 'A');
-    selection_sort(&data);
+    print_stack(stackB, 'B');
+    /*
+    bubble_sort_a(&data);
     print_stack(stackA, 'A');
+    bubble_sort_b(&data);    
+    print_stack(stackB, 'B');
+    */
+    //selection_sort(&data);
+    
+    //insertion_sort(&data);
+    merge_short(&data);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
     print_stack(&data.operations, 'O');
     printf("%d operaciones\n", data.operations.size);
 
