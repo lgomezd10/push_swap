@@ -6,7 +6,13 @@ RM = rm -rf
 
 FILES = handle_errors \
 	lists \
-	operations
+	tools \
+	operations \
+	operations_a \
+	operations_b \
+	operations_both \
+	bubble_sort \
+	selection_sort \
 
 SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
 
@@ -20,3 +26,7 @@ ${LIFBT}:
 
 clean:
 	${RM} ${OBJS}
+
+fclean:	clean
+	${MAKE} fclean -C ${DIRLIBFT}
+	${RM} test
