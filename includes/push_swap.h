@@ -40,7 +40,10 @@ typedef struct s_data
 {
 	t_stack stack_a;
 	t_stack stack_b;
+	int		min_sorted;
+	int		pos_min_sorted;
 	t_stack operations;
+	int			*sorted;
 	int size;
 } t_data;
 
@@ -72,6 +75,8 @@ void move_up(t_data *data, int nbr);
 void selection_sort(t_data *data);
 void insertion_sort(t_data *data);
 void merge_short(t_data *data);
-int get_middle(t_stack *stack);
+int get_middle(t_data *data);
+void sort_array(t_data *data);
+void move_down(t_data *data, int nbr);
 
 #endif

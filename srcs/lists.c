@@ -43,6 +43,7 @@ void    add_element_front(t_stack *stack, t_lst_st *element)
 	}
 	else
 	{
+		stack->start->prev = element;
 		element->next = stack->start;
 		stack->start = element;
 		stack->size++;
@@ -119,4 +120,5 @@ void remove_element(t_stack *stack, t_lst_st *element)
 		if (element->nbr == stack->smaller)
 			stack->smaller = find_element(stack->start, 1);
 	}
+	
 }

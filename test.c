@@ -5,6 +5,7 @@ void print_stack(t_stack *stack, char name)
     t_lst_st *temp;
 
     printf("stack %c / menor: %d / mayor: %d size %d: ", name, stack->smaller, stack->bigger, stack->size);
+    
     temp = stack->start;
     while (temp)
     {
@@ -12,6 +13,16 @@ void print_stack(t_stack *stack, char name)
         temp = temp->next;
     }
     printf("\n");
+    /*
+    printf("                                REVERSO: ");
+    temp = stack->end;
+    while (temp)
+    {
+        printf("%d,", temp->nbr);
+        temp = temp->prev;
+    }
+    printf("\n");
+    */
 }
 
 void print_reverse(t_stack *stack, char name)
@@ -34,7 +45,8 @@ int main(void)
     t_stack *stackA;
     t_stack *stackB;
     //int pila[] = {5, 1, 6, 10, 3, 4, 0};
-    int pila[] = {16, 17, 45, 27, 88, 49, 75, 2, 72, 59, 95, 37, 13, 51, 31, 10, 23, 50, 91, 25, 66, 7, 96, 56, 92, 68, 73, 33, 61, 15, 0};
+    //int pila[] = {16, 17, 45, 27, 88, 49, 75, 2, 72, 59, 95, 37, 13, 51, 31, 10, 23, 50, 91, 25, 66, 7, 96, 56, 92, 68, 73, 33, 61, 15, 0};
+    int pila[] = {4, 7, 9, 10, 11, 12, 15, 16, 18, 21, 22, 31, 32, 34, 38, 40, 42, 43, 45, 46, 48, 49, 51, 52, 53, 54, 57, 58, 64, 65, 68, 69, 70, 71, 72, 74, 76, 77, 78, 79, 82, 86, 87, 90, 92, 93, 95, 97, 101, 106, 107, 108, 109, 110, 111, 113, 114, 115, 116, 118, 119, 122, 123, 125, 129, 130, 133, 134, 136, 142, 144, 148, 150, 151, 152, 155, 156, 157, 159, 160, 163, 164, 169, 171, 172, 173, 174, 176, 177, 180, 182, 183, 184, 185, 186, 187, 192, 194, 195, 197, 0};
     int i;
 
     ft_bzero(&data, sizeof(t_data));
@@ -49,6 +61,27 @@ int main(void)
         i++;
         printf("añadido %d\n", pila[i]);
     }
+/*
+    t_lst_st *temp;
+    temp = data.stack_a.end;
+    while (temp)
+    {
+        printf("%d, ", temp->nbr);
+        temp = temp->prev;
+    }
+    printf("\n");
+    */
+    
+     print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    merge_short(&data);
+    //selection_sort(&data);
+    
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    print_stack(&data.operations, 'O');
+    
+
     /*
     i = 0;
     while (pila[i] != 0)
@@ -59,8 +92,77 @@ int main(void)
         printf("añadido %d\n", pila[i]);
     }
     */
+   /*
+    i = 0;
+    printf("** %d **\n", i++);
     print_stack(stackA, 'A');
     print_stack(stackB, 'B');
+    push_b(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_b(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_b(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_b(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_b(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_b(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_b(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_b(&data);
+
+    
+    printf("**CAMBIO A PUSH A %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_a(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_a(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_a(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_a(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_a(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_a(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_a(&data);
+    printf("** %d **\n", i++);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    push_a(&data);
+    */
+  
+    //short_array(&data);
     /*
     bubble_sort_a(&data);
     print_stack(stackA, 'A');
@@ -70,30 +172,49 @@ int main(void)
     //selection_sort(&data);
     
     //insertion_sort(&data);
+    /*
     merge_short(&data);
     print_stack(stackA, 'A');
     print_stack(stackB, 'B');
     print_stack(&data.operations, 'O');
     printf("%d operaciones\n", data.operations.size);
-
+    */
     /*
     buble_sort(&data);
     print_stack(stackA, 'A');
     print_stack(&data.operations, 'O');
     printf("%d operaciones\n", data.operations.size);
-    
-    print_reverse(&stackA, 'A');
-    move_of_stack(&stackA, &stackB);
-    print_stack(&stackA, 'A');
-    print_stack(&stackB, 'B');
-    move_of_stack(&stackA, &stackB);
-    move_of_stack(&stackA, &stackB);
-    print_stack(&stackA, 'A');
-    print_stack(&stackB, 'B');
-    rotate_stack(&stackB);
-    print_stack(&stackB, 'B');
-    rotate_reverse_stack(&stackB);
-    print_stack(&stackB, 'B');
     */
+   /*
+    printf("***** 1 ********\n");
+    print_stack(stackA, 'A');
+    move_of_stack(stackA, stackB);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    printf("***** 2 ********\n");
+    move_of_stack(stackA, stackB);
+    move_of_stack(stackA, stackB);
+    print_stack(stackA, 'A');
+    print_stack(stackB, 'B');
+    printf("***** 3 ********\n");
+    rotate_stack(stackB);
+    print_stack(stackB, 'B');
+    printf("***** 4 ********\n");
+    rotate_reverse_stack(stackB);
+    print_stack(stackB, 'B');
+    printf("***** 3 ********\n");
+    rotate_stack(stackB);
+    print_stack(stackB, 'B');
+    printf("***** 4 ********\n");
+    rotate_reverse_stack(stackB);
+    print_stack(stackB, 'B');
+    printf("***** 5 ********\n");
+    rotate_stack(stackA);
+    print_stack(stackA, 'A');
+    printf("***** 6 ********\n");
+    rotate_reverse_stack(stackA);
+    print_stack(stackA, 'A');
+*/
+    
 
 }
