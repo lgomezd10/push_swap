@@ -64,28 +64,29 @@ void move_up(t_data *data, int nbr)
     }
 }
 
+/*
+
 int get_middle(t_stack *stack)
 {
-    int *values;
-    int value;
     int i;
+    int nbr;
+    int smaller;
+    int *numbers;
     t_lst_st *temp;
 
-    values = (int *)ft_calloc(sizeof(int), stack->size);
-    printf("el tamaño del array %d\n", stack->size);
-    if (!values)
-        show_error();
+    temp = stack->start;
+    numbers = ft_calloc(sizeof(int), stack->size);
     i = 0;
-    while (temp && i < stack->size)
+    while (i < stack->size && temp)
     {
-        printf("en el while %d\n", i);
-        values[i] = temp->nbr;
-        printf("antes de pasar %d\n", i);
+        numbers[i] = temp->nbr;
+        printf("se ha guarddo %d\n", numbers[i]);
         temp = temp->next;
         i++;
-        printf("añadido el valor %d en interaccion %d\n", values[i], i);
     }
-    value = values[i / 2];
-    free(values);
-    return (value);
+    
+    nbr = numbers[i / 2];
+    printf("se devuelve %d\n", nbr);
+    return (nbr);
 }
+*/

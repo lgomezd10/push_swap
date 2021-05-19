@@ -33,7 +33,8 @@ int main(void)
     t_data data;
     t_stack *stackA;
     t_stack *stackB;
-    int pila[] = {5, 1, 6, 10, 3, 4, 0};
+    //int pila[] = {5, 1, 6, 10, 3, 4, 0};
+    int pila[] = {16, 17, 45, 27, 88, 49, 75, 2, 72, 59, 95, 37, 13, 51, 31, 10, 23, 50, 91, 25, 66, 7, 96, 56, 92, 68, 73, 33, 61, 15, 0};
     int i;
 
     ft_bzero(&data, sizeof(t_data));
