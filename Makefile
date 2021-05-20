@@ -14,7 +14,8 @@ FILES = handle_errors \
 	bubble_sort \
 	selection_sort \
 	merge_sort \
-	array_sorted
+	array_sorted \
+	merge_select_sort
 
 SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
 

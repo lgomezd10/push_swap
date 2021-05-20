@@ -69,6 +69,7 @@ int find_min_sort(t_data *data)
 	*/
 	i = data->size - 1;
 	temp = data->stack_a.end;
+	
 	while (i >= 0 && temp && temp->nbr == sorted[i])
 	{
 		data->min_sorted = temp->nbr;
@@ -81,47 +82,41 @@ int find_min_sort(t_data *data)
 	return (data->min_sorted);
 }
 
-void system_sort(t_data *data)
+static void system_sort(t_data *data)
 {
 	t_stack *stack;
 	t_lst_st *temp;
-	int count;
-	int size;
 	int middle;
 	int i;
-	int j;
+	int size;
 
 	stack = &data->stack_a;
-	middle = stack->smaller + ((stack->bigger - stack->smaller) / 2);
-	
-	size = stack->size;
+	move_down(data, data->stack_a.bigger);
 	find_min_sort(data);
-	j = 0;
-	while (data->min_sorted != stack->smaller)
+	size = stack->size;
+	while (find_min_sort(data) != stack->smaller)
 	{
-		count = size;
-		while (count && data->stack_a.start)
-		{
-			
-			temp = data->stack_a.start;
+		middle = get_middle(data);
+		temp = data->stack_a.start;
+		while (temp && temp->nbr != data->min_sorted)
+		{			
 			if (temp->nbr <= middle)
+			{
 				push_b(data);
+				//sort_top(data);
+			}
 			else
 				rotate_a(data);
-			count--;
+			temp = data->stack_a.start;
 		}
-		sort_top(data);
 		system_sort(data);
 		move_down(data, data->stack_a.bigger);
-		sort_top(data);
 		i = 0;
 		while (stack->size < size)
 		{
 			push_a(data);
 			sort_top(data);
-		}
-		find_min_sort(data);
-		middle = get_middle(data);			
+		}					
 	}
 }
 

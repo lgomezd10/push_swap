@@ -45,6 +45,8 @@ typedef struct s_data
 	t_stack operations;
 	int			*sorted;
 	int size;
+	int			*sorted_b;
+	int size_b;
 } t_data;
 
 

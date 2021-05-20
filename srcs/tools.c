@@ -100,7 +100,6 @@ int get_middle(t_data *data)
     {
         stack = data->stack_a;
         i = 0;
-        stack.size;
         pos = data->size - stack.size;
         to_short = (data->pos_min_sorted - pos);
         if (to_short == 2)
