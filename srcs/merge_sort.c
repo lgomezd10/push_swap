@@ -31,7 +31,6 @@ int find_min_sort(t_data *data)
 	{
 		data->min_sorted = temp->nbr;
 		data->pos_min_sorted = i;
-		printf("%d, ", sorted[i]);
 		i--;
 		temp = temp->prev;
 	}
@@ -60,19 +59,15 @@ void system_sort(t_data *data)
 	middle = stack->smaller + ((stack->bigger - stack->smaller) / 2);
 	
 	size = stack->size;
+	find_min_sort(data);
 	j = 0;
-	while (find_min_sort(data) != stack->smaller && j < 2)
-	{		
-		printf("VALOR de middle %d\n", middle);
-		printf("*************\n");
-		printf("el min_sort es %d y smaller %d\n", data->min_sorted, stack->smaller);
-		print_stack(stack, 'A');
-		printf("*************\n");
+	while (data->min_sorted != stack->smaller)
+	{
 		count = size;
 		while (count && data->stack_a.start)
 		{
 			temp = data->stack_a.start;
-			if (temp->nbr < middle)
+			if (temp->nbr <= middle)
 				push_b(data);
 			else
 				rotate_a(data);
@@ -84,9 +79,7 @@ void system_sort(t_data *data)
 		while (stack->size < size)
 			push_a(data);
 		find_min_sort(data);
-		middle = get_middle(data);	
-		printf("NUEVO VALOR de middle %d\n", middle);	
-		
+		middle = get_middle(data);			
 	}
 }
 
