@@ -71,6 +71,8 @@ void swap_b(t_data *data);
 void push_b(t_data *data);
 void rotate_b(t_data *data);
 void reverse_rotate_b(t_data *data);
+void rotate_both(t_data *data);
+void reverse_rotate_both(t_data *data);
 void move_up(t_data *data, int nbr);
 void selection_sort(t_data *data);
 void insertion_sort(t_data *data);
@@ -78,5 +80,7 @@ void merge_short(t_data *data);
 int get_middle(t_data *data);
 void sort_array(t_data *data);
 void move_down(t_data *data, int nbr);
+void swap_both(t_data *data);
+void sort_top(t_data *data);
 
 #endif

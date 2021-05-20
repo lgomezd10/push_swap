@@ -1,5 +1,7 @@
 #include "../includes/push_swap.h"
 
+
+
 int find_next_min(t_stack stack, int min)
 {
     t_lst_st *temp;

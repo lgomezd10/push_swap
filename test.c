@@ -75,8 +75,8 @@ int main(void)
     
      print_stack(stackA, 'A');
     print_stack(stackB, 'B');
-    merge_short(&data);
-    //selection_sort(&data);
+    //merge_short(&data);
+    selection_sort(&data);
     
     print_stack(stackA, 'A');
     print_stack(stackB, 'B');
