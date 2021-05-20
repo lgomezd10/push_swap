@@ -42,6 +42,8 @@ typedef struct s_data
 	t_stack stack_b;
 	int		min_sorted;
 	int		pos_min_sorted;
+	int		min_sorted_b;
+	int		pos_min_sorted_b;
 	t_stack operations;
 	int			*sorted;
 	int size;
@@ -84,5 +86,8 @@ void sort_array(t_data *data);
 void move_down(t_data *data, int nbr);
 void swap_both(t_data *data);
 void sort_top(t_data *data);
+void merge_select_short(t_data *data);
+void sort_array_b(t_data *data);
+void move_down_b(t_data *data, int nbr);
 
 #endif
