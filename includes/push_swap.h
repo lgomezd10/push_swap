@@ -49,6 +49,7 @@ typedef struct s_data
 	int size;
 	int			*sorted_b;
 	int size_b;
+	int change;
 } t_data;
 
 
@@ -90,5 +91,6 @@ void merge_select_short(t_data *data);
 void sort_array_b(t_data *data);
 void move_down_b(t_data *data, int nbr);
 int get_middle_temp(t_data *data, t_stack *stack);
+void bubble_sort_2(t_data *data);
 
 #endif

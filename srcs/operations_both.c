@@ -9,11 +9,8 @@ void swap_both(t_data *data)
     stack_a = &data->stack_a;
     stack_b = &data->stack_b;
     operations = &data->operations;
-    printf("antes de swap a\n");
     swap_stack(stack_a);
-    printf("despues de swap a\n");
     swap_stack(stack_b);
-    printf("despues  de swap b\n");
     add_new_back(operations, Op_ss);
 }
 
