@@ -6,12 +6,9 @@ void swap_stack(t_stack *stack)
 
     if (stack->start && stack->start->next)
     {
-        temp = stack->start;        
-        stack->start = temp->next;
-        temp->next = stack->start->next;
-        temp->prev = stack->start;
-        stack->start->prev = 0;
-        stack->start->next = temp;
+        temp = stack->start->next;
+        remove_element(stack, temp);
+        add_element_front(stack, temp);
     }
 }
 

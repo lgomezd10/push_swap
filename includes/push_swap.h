@@ -89,5 +89,6 @@ void sort_top(t_data *data);
 void merge_select_short(t_data *data);
 void sort_array_b(t_data *data);
 void move_down_b(t_data *data, int nbr);
+int get_middle_temp(t_data *data, t_stack *stack);
 
 #endif

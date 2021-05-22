@@ -21,6 +21,8 @@ SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
 
 OBJS =${SRCS:.c=.o}
 
+testc: clean test
+
 test:	${LIFBT} ${OBJS}
 	gcc -o test test.c ${OBJS} ${LIFBT}
 

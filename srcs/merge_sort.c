@@ -16,11 +16,7 @@ void sort_top(t_data *data)
     list_b = data->stack_b.start;
     rot_a = 0;
     rot_b = 0;
-	/*
-	printf("*******ANTES DE ROTAR************\n");
-	print_stack(&data->stack_a, 'A');
-    print_stack(&data->stack_b, 'B');
-	*/
+		
     if (list_a && list_a->next)
     {
 		//printf("STACK A 1: %d next: %d\n", list_a->nbr, list_a->next->nbr);
@@ -33,13 +29,17 @@ void sort_top(t_data *data)
 		if (list_b->nbr < list_b->next->nbr)
             rot_b = 1;
     }
-	//printf("rot_a: %d rot_b: %d\n", rot_a, rot_b);
+	printf("rot_a: %d rot_b: %d\n", rot_a, rot_b);
+	
+	
     if (rot_a && rot_b)
         swap_both(data);
     if (rot_a && !rot_b)
         swap_a(data);
     if (!rot_a && rot_b)
         swap_b(data);
+	
+	
 		/*
 	printf("*******DESPUES DE ROTAR************\n");
 	print_stack(&data->stack_a, 'A');
