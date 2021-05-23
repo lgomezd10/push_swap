@@ -38,6 +38,8 @@ typedef struct s_stack
 
 typedef struct s_data
 {
+	int argc;
+	char **argv;
 	t_stack stack_a;
 	t_stack stack_b;
 	int		min_sorted;

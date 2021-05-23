@@ -2,6 +2,8 @@ DIRLIBFT = libft
 
 LIFBT = ${DIRLIBFT}/libft.a
 
+NAME = push_swap
+
 RM = rm -rf
 
 FILES = handle_errors \
@@ -16,11 +18,14 @@ FILES = handle_errors \
 	merge_sort \
 	array_sorted \
 	merge_select_sort \
-	bubble_sort_2
+	bubble_sort_2 
 
 SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
 
 OBJS =${SRCS:.c=.o}
+
+${NAME}: ${LIFBT} ${OBJS}
+	gcc -o ${NAME} srcs/main.c ${OBJS} ${LIFBT}
 
 testc: clean test
 

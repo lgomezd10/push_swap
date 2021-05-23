@@ -108,7 +108,7 @@ static void system_sort(t_data *data)
 			else
 				rotate_a(data);
 			temp = data->stack_a.start;
-		}
+		}		
 		system_sort(data);
 		move_down(data, data->stack_a.bigger);
 		i = 0;

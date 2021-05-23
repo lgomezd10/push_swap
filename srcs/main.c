@@ -1,5 +1,6 @@
 #include "../includes/push_swap.h"
 
+/*
 void add_new_nbr(t_list *list, int nbr)
 {
     int *number;
@@ -8,32 +9,37 @@ void add_new_nbr(t_list *list, int nbr)
     *number = nbr;
     ft_lstadd_back(list, ft_lstnew(number));
 }
+*/
 
-t_list *load_stack(int argc, char **argv)
+void load_stack(t_data *data)
 {
     t_list *list;
     int nbr;
     int i;
 
-    while (i < argc)
+    i = 1;
+    while (i < data->argc)
     {
-        if (ft_str_is_nbr(argv[i]))
+        if (ft_str_is_nbr(data->argv[i]))
         {
-            nbr = ft_atoi(argv[i]);
-            add_new_nbr(list, nbr);
+            nbr = ft_atoi(data->argv[i]);
+            add_new_back(&data->stack_a, nbr);
         }
         else
             show_error();
+        i++;
     }
-    return (list);
 }
 
 int main(int argc, char **argv)
 {
     int i;
-    t_list *stack_a;
-    t_list *stack_b;
+    t_data data;
 
-    stack_a = load_stack(argc, argv);
+    data.argc = argc;
+    data.argv = argv;
+    load_stack(&data);
+    print_stack(&data.stack_a, 'A');
+    print_stack(&data.stack_b, 'A');
     
 }

@@ -158,3 +158,42 @@ int get_middle_b(t_data *data)
     }
     return (0);
 }
+
+void print_stack(t_stack *stack, char name)
+{
+    t_lst_st *temp;
+
+    printf("stack %c / menor: %d / mayor: %d size %d: ", name, stack->smaller, stack->bigger, stack->size);
+    
+    temp = stack->start;
+    while (temp)
+    {
+        printf("%d,", temp->nbr);
+        temp = temp->next;
+    }
+    printf("\n");
+    /*
+    printf("                                REVERSO: ");
+    temp = stack->end;
+    while (temp)
+    {
+        printf("%d,", temp->nbr);
+        temp = temp->prev;
+    }
+    printf("\n");
+    */
+}
+
+void print_reverse(t_stack *stack, char name)
+{
+    t_lst_st *temp;
+
+    printf("stack %c %d: ", name, stack->size);
+    temp = stack->end;
+    while (temp)
+    {
+        printf("%d,", temp->nbr);
+        temp = temp->prev;
+    }
+    printf("\n");
+}
