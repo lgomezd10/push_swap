@@ -52,6 +52,7 @@ typedef struct s_data
 	int change;
 } t_data;
 
+typedef void (*t_function)(t_data *);
 
 
 void show_error();

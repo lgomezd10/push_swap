@@ -43,7 +43,7 @@ int swap_top(t_data *data)
 	
 }
 
-int check_top(t_data *data)
+void check_top(t_data *data)
 {
     t_stack *stack_a;
     t_stack *stack_b;
@@ -117,9 +117,6 @@ void bubble_sort_2(t_data *data)
     move_down_b(data, stack_b->smaller);
     sorted_a = is_sort_increasing(stack_a->start);
     sorted_b = is_sort_decreasing(stack_b->start);
-    printf("*******DESPUES DE DIVIDIR************\n");
-	print_stack(&data->stack_a, 'A');
-    print_stack(&data->stack_b, 'B');
     data->change = 1;        
     while ((!sorted_a || !sorted_b) && swap)
     {
@@ -135,13 +132,7 @@ void bubble_sort_2(t_data *data)
         sorted_b = is_sort_decreasing(stack_b->start);
     }
     move_down(data, data->stack_a.bigger);
-    printf("*******DESPUES DE MOVE A************\n");
-	print_stack(&data->stack_a, 'A');
-    print_stack(&data->stack_b, 'B');
     move_down_b(data, data->stack_b.smaller);
-    printf("*******DESPUES DE MOVE B************\n");
-	print_stack(&data->stack_a, 'A');
-    print_stack(&data->stack_b, 'B');
     while (stack_b->size)
     {
         push_a(data);

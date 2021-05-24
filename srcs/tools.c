@@ -112,11 +112,6 @@ void move_down_b(t_data *data, int nbr)
     }
 }
 
-int get_otro_middle(t_data *data)
-{
-
-}
-
 int get_middle(t_data *data)
 {
     int i;
