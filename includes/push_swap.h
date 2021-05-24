@@ -38,8 +38,6 @@ typedef struct s_stack
 
 typedef struct s_data
 {
-	int argc;
-	char **argv;
 	t_stack stack_a;
 	t_stack stack_b;
 	int		min_sorted;
@@ -57,6 +55,7 @@ typedef struct s_data
 
 
 void show_error();
+void save_and_restart(t_data *data, t_stack *op);
 t_lst_st *add_new_back(t_stack *stack, int nbr);
 void    add_element_front(t_stack *stack, t_lst_st *element);
 void    add_element_back(t_stack *stack, t_lst_st *element);

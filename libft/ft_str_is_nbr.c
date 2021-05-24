@@ -14,6 +14,9 @@
 
 int	ft_str_is_nbr(char *str)
 {
+	if (*str != '-' && *str != '+' && !ft_isdigit(*str))
+		return (0);
+	str++;
 	while (*str)
 	{
 		if (!ft_isdigit(*str))

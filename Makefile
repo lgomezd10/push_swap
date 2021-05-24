@@ -6,7 +6,8 @@ NAME = push_swap
 
 RM = rm -rf
 
-FILES = handle_errors \
+FILES = save_restart \
+	handle_errors \
 	lists \
 	tools \
 	operations \
