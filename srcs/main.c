@@ -60,19 +60,16 @@ void load_stack(t_data *data, int argc, char **argv)
     t_list *list;
     int nbr;
     int i;
-    int size;
 
-    size = argc;
     i = 1;
     if (argc == 2)
     {
-        i = 0;
-        size = 0;
-        while (argv[i++])
-            size++;
+        argc = 0;
+        while (argv[argc])
+            argc++;
         i = 0;
     }
-    while (i < size)
+    while (i < argc)
     {
         if (ft_str_is_nbr(argv[i]))
         {
@@ -83,6 +80,9 @@ void load_stack(t_data *data, int argc, char **argv)
             show_error();
         i++;
     }
+    data->stack_a.name = 'a';
+    data->stack_b.name = 'b';
+    sort_array(data);
 }
 
 void load_functions(t_function **array_f)
@@ -90,15 +90,18 @@ void load_functions(t_function **array_f)
     int i;
     t_function *array;
 
-    array = (t_function *)ft_calloc(sizeof(t_function), 6);
+    array = (t_function *)ft_calloc(sizeof(t_function), 8);
     if (!array)
         show_error();
     i = 0;
-    array[i++] = bubble_sort_a;
-    array[i++] = selection_sort;
-    array[i++] = bubble_sort_2;
-    array[i++] = merge_short;
-    array[i++] = merge_select_short;
+    //  array[i++] = bubble_sort_a;    
+    //  array[i++] = selection_sort;
+    //  array[i++] = bubble_sort_2;
+    //  array[i++] = insertion_sort;
+    // array[i++] = merge_short;
+    // array[i++] = merge_select_short;
+    // array[i++] = merge_inters_short;
+     array[i++] = ger_sort;
     *array_f = array;
 }
 
@@ -134,7 +137,7 @@ int main(int argc, char **argv)
                 print_stack(&data.stack_b, 'B');
                 print_stack(&data.operations, 'O');
                 */
-                save_and_restart(&data, &solution);
+                save_and_restart(&data, &solution, i);
                 /*
                 printf("Solucion seleccionada\n");
                 print_stack(&solution, 'S');
@@ -144,10 +147,15 @@ int main(int argc, char **argv)
             else
                 i = 0;
             
-        }
-        printf("Solucion seleccionada\n");
-                print_stack(&solution, 'S');
+        }        
         print_solution(solution.start);
+        /*    
+        printf("Solucion seleccionada por funcion %d\n", solution.func);
+        print_stack(&solution, 'S');
+        */
+        
+        
+        
         
     }
 

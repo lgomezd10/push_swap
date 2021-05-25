@@ -19,7 +19,8 @@ FILES = save_restart \
 	merge_sort \
 	array_sorted \
 	merge_select_sort \
-	bubble_sort_2 
+	bubble_sort_2 \
+	ger_sort
 
 SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
 
@@ -43,3 +44,4 @@ fclean:	clean
 	${MAKE} fclean -C ${DIRLIBFT}
 	${RM} test
 	${RM} ${Name}
+

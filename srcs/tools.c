@@ -40,7 +40,7 @@ void rotate_all(t_data *data, int from, int to, void (*rot)(t_data *))
     }
 }
 
-void move_up(t_data *data, int nbr)
+void move_up_a(t_data *data, int nbr)
 {
     int found;
     int pos;
@@ -64,7 +64,31 @@ void move_up(t_data *data, int nbr)
     }
 }
 
-void move_down(t_data *data, int nbr)
+void move_up_b(t_data *data, int nbr)
+{
+    int found;
+    int pos;
+    t_lst_st *temp;
+
+    pos = 0;
+    found = 0;
+    temp = data->stack_b.start;
+    while (!found && temp)
+    {
+        if (temp->nbr == nbr)
+        {
+            if (pos > data->stack_b.size / 2)            
+                rotate_all(data, pos, data->stack_b.size, reverse_rotate_b);
+            else
+                rotate_all(data, 0, pos, rotate_b);
+            found = 1;
+        }
+        pos++;
+        temp = temp->next;
+    }
+}
+
+void move_down_a(t_data *data, int nbr)
 {
     int found;
     int pos;
@@ -129,7 +153,7 @@ int get_middle(t_data *data)
         if (to_short == 2)
             to_short = 0;
         i = pos + (to_short / 2);
-        return (data->sorted[i]);
+        return (data->sorted->array[i]);
     }
     return (0);
 }

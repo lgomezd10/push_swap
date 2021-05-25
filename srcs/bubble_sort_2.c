@@ -108,12 +108,12 @@ void bubble_sort_2(t_data *data)
 
     stack_a = &data->stack_a;
     stack_b = &data->stack_b;
-    move_down(data, stack_a->bigger);
+    move_down_a(data, stack_a->bigger);
     sorted_a = is_sort_increasing(stack_a->start);
     swap = 1;
     if (!sorted_a)
         divide_a(data);
-    move_down(data, stack_a->bigger);
+    move_down_a(data, stack_a->bigger);
     move_down_b(data, stack_b->smaller);
     sorted_a = is_sort_increasing(stack_a->start);
     sorted_b = is_sort_decreasing(stack_b->start);
@@ -131,12 +131,10 @@ void bubble_sort_2(t_data *data)
         sorted_a = is_sort_increasing(stack_a->start);
         sorted_b = is_sort_decreasing(stack_b->start);
     }
-    move_down(data, data->stack_a.bigger);
+    move_down_a(data, data->stack_a.bigger);
     move_down_b(data, data->stack_b.smaller);
     while (stack_b->size)
     {
         push_a(data);
-    }
-    
-    
+    }    
 }

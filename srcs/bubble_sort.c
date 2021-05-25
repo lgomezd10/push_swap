@@ -10,7 +10,7 @@ void bubble_sort_a(t_data *data)
 
     ordered = 0;
     stack = &data->stack_a;
-    move_down(data, stack->bigger);
+    move_down_a(data, stack->bigger);
     while (!ordered || !is_sort_increasing(stack->start))
     {
         count = data->stack_a.size;
@@ -49,7 +49,7 @@ void bubble_sort_b(t_data *data)
         count = data->stack_b.size;
         ordered = 1;
         temp = stack->start;
-        while (--count && temp && temp->next)
+        while (--count && temp && temp->next && !is_sort_decreasing(stack->start))
         {
             if (temp->nbr < temp->next->nbr)
             {
@@ -61,7 +61,8 @@ void bubble_sort_b(t_data *data)
                 else
                     count = 1;
             }
-            rotate_b(data);
+            if (!is_sort_decreasing(stack->start))
+                rotate_b(data);
             temp = stack->start;
         }
     }

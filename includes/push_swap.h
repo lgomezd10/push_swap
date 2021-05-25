@@ -19,6 +19,12 @@ enum e_operations
 	Op_rrr
 };
 
+typedef struct s_array
+{
+	int size;
+	int *array;
+}	t_array;
+
 typedef struct s_lst_st
 {
 	int             nbr;
@@ -34,6 +40,8 @@ typedef struct s_stack
 	int         size;
 	int			smaller;
 	int			bigger;
+	int			func;
+	char		name;
 } t_stack;
 
 typedef struct s_data
@@ -45,18 +53,19 @@ typedef struct s_data
 	int		min_sorted_b;
 	int		pos_min_sorted_b;
 	t_stack operations;
-	int			*sorted;
+	t_array		*sorted;
 	int size;
 	int			*sorted_b;
 	int size_b;
 	int change;
+	int func;
 } t_data;
 
 typedef void (*t_function)(t_data *);
 
 
 void show_error();
-void save_and_restart(t_data *data, t_stack *op);
+void save_and_restart(t_data *data, t_stack *op, int func);
 t_lst_st *add_new_back(t_stack *stack, int nbr);
 void    add_element_front(t_stack *stack, t_lst_st *element);
 void    add_element_back(t_stack *stack, t_lst_st *element);
@@ -80,19 +89,23 @@ void rotate_b(t_data *data);
 void reverse_rotate_b(t_data *data);
 void rotate_both(t_data *data);
 void reverse_rotate_both(t_data *data);
-void move_up(t_data *data, int nbr);
+void move_up_a(t_data *data, int nbr);
+void move_up_b(t_data *data, int nbr);
+void move_down_a(t_data *data, int nbr);
+void move_down_b(t_data *data, int nbr);
 void selection_sort(t_data *data);
 void insertion_sort(t_data *data);
 void merge_short(t_data *data);
 int get_middle(t_data *data);
 void sort_array(t_data *data);
-void move_down(t_data *data, int nbr);
 void swap_both(t_data *data);
 void sort_top(t_data *data);
 void merge_select_short(t_data *data);
+void merge_inters_short(t_data *data);
 void sort_array_b(t_data *data);
-void move_down_b(t_data *data, int nbr);
 int get_middle_temp(t_data *data, t_stack *stack);
 void bubble_sort_2(t_data *data);
+void ger_sort(t_data *data);
+t_array *get_array_sorted(t_stack stack);
 
 #endif

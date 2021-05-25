@@ -65,6 +65,12 @@ void merge_select_short(t_data *data)
 {
    system_sort_a(data);
    system_sort_b(data);
-   selection_sort(data);
-    
+   selection_sort(data);  
+}
+
+void merge_inters_short(t_data *data)
+{
+   system_sort_a(data);
+   system_sort_b(data);
+   insertion_sort(data);    
 }

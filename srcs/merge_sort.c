@@ -39,7 +39,7 @@ int find_min_sort(t_data *data)
 	t_lst_st *temp;
 	int			*sorted;
 
-	sorted = data->sorted;
+	sorted = data->sorted->array;
 	i = 0;	
 	i = data->size - 1;
 	temp = data->stack_a.end;
@@ -63,7 +63,7 @@ static void system_sort(t_data *data)
 	int size;
 
 	stack = &data->stack_a;
-	move_down(data, data->stack_a.bigger);
+	move_down_a(data, data->stack_a.bigger);
 	find_min_sort(data);
 	size = stack->size;
 	while (find_min_sort(data) != stack->smaller)
@@ -79,7 +79,7 @@ static void system_sort(t_data *data)
 			temp = data->stack_a.start;
 		}		
 		system_sort(data);
-		move_down(data, data->stack_a.bigger);
+		move_down_a(data, data->stack_a.bigger);
 		i = 0;
 		while (stack->size < size)
 		{
@@ -90,7 +90,6 @@ static void system_sort(t_data *data)
 }
 
 void merge_short(t_data *data)
-{
-	sort_array(data);
+{	
 	system_sort(data);
 }
