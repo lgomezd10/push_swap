@@ -42,3 +42,4 @@ clean:
 fclean:	clean
 	${MAKE} fclean -C ${DIRLIBFT}
 	${RM} test
+	${RM} ${Name}
