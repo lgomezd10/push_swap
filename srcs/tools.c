@@ -136,27 +136,7 @@ void move_down_b(t_data *data, int nbr)
     }
 }
 
-int get_middle(t_data *data)
-{
-    int i;
-    int pos;
-    int to_short;
-    int middle;
-    t_stack stack;
 
-    if (data->sorted)
-    {
-        stack = data->stack_a;
-        i = 0;
-        pos = data->size - stack.size;
-        to_short = (data->pos_min_sorted - pos);
-        if (to_short == 2)
-            to_short = 0;
-        i = pos + (to_short / 2);
-        return (data->sorted->array[i]);
-    }
-    return (0);
-}
 
 int get_middle_b(t_data *data)
 {

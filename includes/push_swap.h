@@ -107,5 +107,9 @@ int get_middle_temp(t_data *data, t_stack *stack);
 void bubble_sort_2(t_data *data);
 void ger_sort(t_data *data);
 t_array *get_array_sorted(t_stack stack);
+int	find_prev_a(t_stack stack, int nbr);
+int	find_prev_b(t_stack stack, int nbr);
+void merge_inser_2_sort(t_data *data);
+int find_min_sort(t_data *data);
 
 #endif

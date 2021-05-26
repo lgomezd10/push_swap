@@ -20,7 +20,9 @@ FILES = save_restart \
 	array_sorted \
 	merge_select_sort \
 	bubble_sort_2 \
-	ger_sort
+	ger_sort \
+	merge_insertion \
+	merge_utils
 
 SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
 
