@@ -22,7 +22,8 @@ FILES = save_restart \
 	bubble_sort_2 \
 	ger_sort \
 	merge_insertion \
-	merge_utils
+	merge_utils \
+	chunk_sort
 
 SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
 

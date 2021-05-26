@@ -98,11 +98,17 @@ void load_functions(t_function **array_f)
     //  array[i++] = selection_sort;
     //  array[i++] = bubble_sort_2;
     //  array[i++] = insertion_sort;
-    // array[i++] = merge_short;
-    // array[i++] = merge_select_short;
-    // array[i++] = merge_inters_short;
-    // array[i++] = ger_sort;
-     array[i++] = merge_inser_2_sort;
+    
+        // array[i++] = merge_short;
+        // array[i++] = merge_insertion;
+        // array[i++] = merge_select_sort;
+        // array[i++] = merge_insert_sort;
+        // array[i++] = merge_insert_sort2;
+        // array[i++] = merge_insert_sort3;
+        array[i++] = chunk_sort;
+      
+    //array[i++] = ger_sort;
+    
 
     *array_f = array;
 }
@@ -133,13 +139,14 @@ int main(int argc, char **argv)
             if (!is_sort_increasing(data.stack_a.start))
             {
                 array_f[i](&data);
-                
+                /*
                 printf("Despues de ejecutar la funcion %d\n", i);
                 print_stack(&data.stack_a, 'A');
                 print_stack(&data.stack_b, 'B');
                 print_stack(&data.operations, 'O');
-                
+                */
                 save_and_restart(&data, &solution, i);
+                
                 /*
                 printf("Solucion seleccionada\n");
                 print_stack(&solution, 'S');
@@ -151,9 +158,10 @@ int main(int argc, char **argv)
             
         }        
         //print_solution(solution.start);
-          
-        printf("Solucion seleccionada por funcion %d\n", solution.func);
-        print_stack(&solution, 'S');
+        
+        printf("Solucion seleccionada por funcion %d veces: %d\n", solution.func, solution.size);
+        //print_stack(&solution, 'S');
+        
         
         
         

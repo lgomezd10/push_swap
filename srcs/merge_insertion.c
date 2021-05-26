@@ -8,9 +8,10 @@ void insertion_one_of_b(t_data *data)
 	t_stack *stack_b;
 	int prev;
 
+	
 	stack_a = &data->stack_a;
 	stack_b = &data->stack_b;
-    nbr = stack_b->start->nbr;		
+    nbr = stack_b->start->nbr;
     if (nbr > data->stack_a.bigger || nbr < stack_a->smaller)
         move_up_a(data, stack_a->smaller);
     else
@@ -21,7 +22,7 @@ void insertion_one_of_b(t_data *data)
     push_a(data);
 }
 
-void merge_inser_2_sort(t_data *data)
+void merge_insertion(t_data *data)
 {
 	t_stack *stack;
 	t_lst_st *temp;
@@ -45,21 +46,22 @@ void merge_inser_2_sort(t_data *data)
 				rotate_a(data);
 			temp = data->stack_a.start;
 		}		
-		merge_inser_2_sort(data);
-		/*
+		merge_insertion(data);		
 		size2 = size - stack->size;
-		if (size2 < 10)
+		if (size2 < 2)
 		{
-			*/
-			while (stack->size < size)
-		
-				insertion_one_of_b(data);
-				/*
+			while (stack->size < size)		
+				insertion_one_of_b(data);				
 		}
 		else
 		{
-			push_a(data);
-			sort_top(data);
-		}	*/		
+			move_down_a(data, data->stack_a.bigger);
+			while (stack->size < size)
+			{
+				push_a(data);
+				sort_top(data);
+			}	
+		}
+		move_down_a(data, data->stack_a.bigger);	
 	}
 }

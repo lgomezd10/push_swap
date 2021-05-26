@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-static void system_sort_a(t_data *data)
+static void system_sort_a(t_data *data, int sort)
 {
     t_stack *stack;
 	t_lst_st *temp;
@@ -13,19 +13,23 @@ static void system_sort_a(t_data *data)
     if (stack->size > 2)
     {
         middle = get_middle_temp(data, stack);
-        temp = data->stack_a.start;        
+        temp = data->stack_a.start;
         while (temp && stack->size > 2 && size)
         {		
             
             if (temp->nbr <= middle)
+            {
                 push_b(data);
+                if (sort)
+                    sort_top(data);
+            }
             else
                 rotate_a(data);
             temp = data->stack_a.start;
             size--;
         }
         sort_top(data);
-        system_sort_a(data);
+        system_sort_a(data, sort);
     }
 }
 
@@ -60,17 +64,53 @@ static void system_sort_b(t_data *data)
         push_a(data);
 }
 
-
-void merge_select_short(t_data *data)
+void insertion_from_b(t_data *data)
 {
-   system_sort_a(data);
-   system_sort_b(data);
-   selection_sort(data);  
+	
+	int nbr;
+	t_stack *stack_a;
+	t_stack *stack_b;
+	int prev;
+
+	
+	stack_a = &data->stack_a;
+	stack_b = &data->stack_b;
+    nbr = stack_b->start->nbr;
+    if (nbr > data->stack_a.bigger || nbr < stack_a->smaller)
+        move_up_a(data, stack_a->smaller);
+    else
+    {
+        prev = find_prev_a(*stack_a, nbr);
+        move_up_a(data, prev);
+    }	
+    push_a(data);
 }
 
-void merge_inters_short(t_data *data)
+
+void merge_select_sort(t_data *data)
 {
-   system_sort_a(data);
+   system_sort_a(data, 0);
+   system_sort_b(data);
+   selection_sort(data);
+}
+
+void merge_insert_sort(t_data *data)
+{
+   system_sort_a(data, 0);
    system_sort_b(data);
    insertion_sort(data);    
+}
+
+void merge_insert_sort2(t_data *data)
+{
+   system_sort_a(data, 1);
+   while (data->stack_b.size)
+       insertion_from_b(data);
+}
+
+void merge_insert_sort3(t_data *data)
+{
+   system_sort_a(data, 1);
+   while (data->stack_b.size)
+       insertion_from_b(data);
 }

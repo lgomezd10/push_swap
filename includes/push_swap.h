@@ -19,6 +19,18 @@ enum e_operations
 	Op_rrr
 };
 
+typedef struct s_chunks
+{
+	int chunk;
+	int divitions;
+	int found_up;
+	int pos_up;
+	int found_down;
+	int pos_down;
+
+
+}	t_chunks;
+
 typedef struct s_array
 {
 	int size;
@@ -100,8 +112,6 @@ int get_middle(t_data *data);
 void sort_array(t_data *data);
 void swap_both(t_data *data);
 void sort_top(t_data *data);
-void merge_select_short(t_data *data);
-void merge_inters_short(t_data *data);
 void sort_array_b(t_data *data);
 int get_middle_temp(t_data *data, t_stack *stack);
 void bubble_sort_2(t_data *data);
@@ -109,7 +119,15 @@ void ger_sort(t_data *data);
 t_array *get_array_sorted(t_stack stack);
 int	find_prev_a(t_stack stack, int nbr);
 int	find_prev_b(t_stack stack, int nbr);
-void merge_inser_2_sort(t_data *data);
+void merge_select_sort(t_data *data);
+void merge_insert_sort(t_data *data);
+void merge_insertion(t_data *data);
+void merge_insert_sort2(t_data *data);
+void merge_insert_sort3(t_data *data);
+void insertion_from_b(t_data *data);
+void chunk_sort(t_data *data);
+void insertion_a_to_b(t_data *data);
+
 int find_min_sort(t_data *data);
 
 #endif
