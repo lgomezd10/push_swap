@@ -45,10 +45,15 @@ int find_nbr_up(t_data *data, t_chunks *chunks)
     {
         chunks->pos_up++;
         if (is_in_chunk(data, chunks, temp->nbr))
+        {
+            chunks->found_up = temp->nbr;
+            printf("pos up: %d\n", chunks->pos_up);
             return (chunks->pos_up);
+        }
         temp = temp->next;
     }
-    return (chunks->pos_up);
+    
+    return (-1);
 }
 
 int find_nbr_down(t_data *data, t_chunks *chunks)
@@ -62,10 +67,14 @@ int find_nbr_down(t_data *data, t_chunks *chunks)
     {
         chunks->pos_down++;
         if (is_in_chunk(data, chunks, temp->nbr))
+        {
+            chunks->found_down = temp->nbr;
+        printf("pos down: %d\n", chunks->pos_down);
             return (chunks->pos_down);
+        }
         temp = temp->prev;
     }
-    return (chunks->pos_down);
+    return (-1);
 }
 
 void chunk_sort(t_data *data)
@@ -77,27 +86,44 @@ void chunk_sort(t_data *data)
     int steps_down;
 
     stack = &data->stack_a;
-    chunks.divitions = 11;
+    chunks.divitions = 4;
     chunks.chunk = 0;
     not_found = 0;
+    printf("Entra\n");
+    print_array(data);
     while (stack->size > 0 || find_min_sort(data) != stack->smaller)
     {
         while (!not_found && stack->size > 0)
         {
-            steps_up = find_nbr_up(data, &chunks);
-            steps_down = stack->size - find_nbr_down(data, &chunks) - 1;
-            if (steps_up < 0)
+            find_nbr_up(data, &chunks);
+            find_nbr_down(data, &chunks);
+            /*
+            print_stack(stack, 'a');
+            print_stack(&data->stack_b, 'b');
+            printf("found up: %d, found down: %d\n", chunks.found_up, chunks.found_down);
+            */
+            if (chunks.pos_up < 0)
                 not_found = 1;
-            if (steps_up <= steps_down)
+            else if (chunks.pos_up <= chunks.pos_down)
                 move_up_a(data, chunks.found_up);
             else
                 move_up_a(data, chunks.found_down);
-            insertion_a_to_b(data);
+            push_b(data);
+            sort_top(data);
         }
         chunks.chunk++;
         not_found = 0;
     }
+    /*
     while (data->stack_b.size > 0)
         push_a(data);
-    move_up_a(data, stack->smaller);
+        */
+    while (data->stack_b.size > 0)
+    {
+        insertion_one_of_b(data);
+        /*
+        move_up_b(data, data->stack_b.bigger);
+        push_a(data);
+        */
+    }
 }

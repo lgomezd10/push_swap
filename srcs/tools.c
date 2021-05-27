@@ -158,6 +158,20 @@ int get_middle_b(t_data *data)
     return (0);
 }
 
+void print_array(t_data *data)
+{
+    int i;
+
+    i = 0;
+    printf("ARRAY: ");
+    while (i < data->sorted->size)
+    {
+        printf("%d,", data->sorted->array[i]);
+        i++;
+    }
+    printf("\n");    
+}
+
 void print_stack(t_stack *stack, char name)
 {
     t_lst_st *temp;

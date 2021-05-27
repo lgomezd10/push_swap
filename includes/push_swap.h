@@ -91,6 +91,7 @@ void rotate_reverse_stack(t_stack *stack);
 void bubble_sort_a(t_data *data);
 void bubble_sort_b(t_data *data);
 void print_stack(t_stack *stack, char name);
+void print_array(t_data *data);
 void swap_a(t_data *data);
 void push_a(t_data *data);
 void rotate_a(t_data *data);
@@ -127,6 +128,7 @@ void merge_insert_sort3(t_data *data);
 void insertion_from_b(t_data *data);
 void chunk_sort(t_data *data);
 void insertion_a_to_b(t_data *data);
+void insertion_one_of_b(t_data *data);
 
 int find_min_sort(t_data *data);
 
