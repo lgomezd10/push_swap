@@ -94,18 +94,19 @@ void load_functions(t_function **array_f)
     if (!array)
         show_error();
     i = 0;
-    //  array[i++] = bubble_sort_a;    
-    //  array[i++] = selection_sort;
-    //  array[i++] = bubble_sort_2;
-    //  array[i++] = insertion_sort;
-    
-        // array[i++] = merge_short;
-        // array[i++] = merge_insertion;
-        // array[i++] = merge_select_sort;
-        // array[i++] = merge_insert_sort;
-        // array[i++] = merge_insert_sort2;
-        // array[i++] = merge_insert_sort3;
-        array[i++] = chunk_sort;
+    /* array[i++] = bubble_sort_a;    
+    array[i++] = selection_sort;
+    array[i++] = bubble_sort_2;
+    array[i++] = insertion_sort;  */   
+    array[i++] = merge_short;
+    array[i++] = merge_insertion;
+    //array[i++] = merge_select_sort; 
+    //REVISAR ARRIBA Y ABAJO QUE DEBE HABER UN FALLO CON merger_b
+    //array[i++] = merge_insert_sort;
+    array[i++] = merge_insert_sort2;    
+    array[i++] = merge_insert_sort3;    
+    //array[i++] = chunk_sort; 
+    array[i++] = randix_sort; 
       
     //array[i++] = ger_sort;
     
@@ -135,7 +136,7 @@ int main(int argc, char **argv)
         i = 0;        
         while (array_f[i] != 0)
         {
-            load_stack(&data, argc, numbers);
+            load_stack(&data, argc, numbers);            
             if (!is_sort_increasing(data.stack_a.start))
             {
                 array_f[i](&data);

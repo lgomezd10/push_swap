@@ -1,41 +1,9 @@
 #include "../includes/push_swap.h"
 
 
-void sort_top(t_data *data)
-{
-    t_lst_st *list_a;
-    t_lst_st *list_b;
-    int rot_a;
-    int rot_b;
-
-    list_a = data->stack_a.start;
-    list_b = data->stack_b.start;
-    rot_a = 0;
-    rot_b = 0;
-		
-    if (list_a && list_a->next)
-    {
-		if (list_a->nbr > list_a->next->nbr)
-            rot_a = 1;
-    }
-    if (list_b && list_b->next)
-    {
-		if (list_b->nbr < list_b->next->nbr)
-            rot_b = 1;
-    }	
-	
-    if (rot_a && rot_b)
-        swap_both(data);
-    if (rot_a && !rot_b)
-        swap_a(data);
-    if (!rot_a && rot_b)
-        swap_b(data);
-	
-}
 
 
-
-static void system_sort(t_data *data)
+void merge_short(t_data *data)
 {
 	t_stack *stack;
 	t_lst_st *temp;
@@ -58,7 +26,7 @@ static void system_sort(t_data *data)
 				rotate_a(data);
 			temp = data->stack_a.start;
 		}		
-		system_sort(data);
+		merge_short(data);
 		move_down_a(data, data->stack_a.bigger);
 		while (stack->size < size)
 		{
@@ -66,12 +34,4 @@ static void system_sort(t_data *data)
 			sort_top(data);
 		}					
 	}
-}
-
-
-
-
-void merge_short(t_data *data)
-{	
-	system_sort(data);
 }

@@ -1,9 +1,10 @@
 #include "../includes/push_swap.h"
 
-int find_next_min(t_stack stack, int min)
+int find_next_min(t_stack stack, int min, int pos)
 {
     t_lst_st *temp;
     int next;
+    t_lst_st *min_node;
 
     temp = stack.start;
     next = stack.bigger;
@@ -11,10 +12,15 @@ int find_next_min(t_stack stack, int min)
     {
         while (temp)
         {
-            if (temp->nbr > min && temp->nbr < next)
+            if (temp->nbr > min && temp->nbr <= next)
+            {
                 next = temp->nbr;
+                min_node = temp;
+            }
             temp = temp->next;
         }
+        if (pos >= 0)
+           min_node->pos_ord = pos;
         return (next);
     }
     else
@@ -37,7 +43,7 @@ t_array *get_array_sorted(t_stack stack)
     i = 0;
     sorted[i] = stack.smaller;
     while (++i < stack.size)
-        sorted[i] = find_next_min(stack, sorted[i - 1]);
+        sorted[i] = find_next_min(stack, sorted[i - 1], i);
     array->array = sorted;
     return (array);
 }
@@ -71,7 +77,7 @@ int get_middle_temp(t_data *data, t_stack *stack)
     i = 0;
     sorted[i] = stack->smaller;
     while (++i < stack->size)
-        sorted[i] = find_next_min(*stack, sorted[i - 1]);
+        sorted[i] = find_next_min(*stack, sorted[i - 1], -1);
     i = sorted[stack->size / 2];
     free(sorted);
     return (i);
@@ -91,6 +97,6 @@ void sort_array_b(t_data *data)
     i = 0;
     sorted[i] = stack.smaller;
     while (++i < stack.size)
-        sorted[i] = find_next_min(stack, sorted[i - 1]);
+        sorted[i] = find_next_min(stack, sorted[i - 1], -1);
     data->sorted_b = sorted;
 }

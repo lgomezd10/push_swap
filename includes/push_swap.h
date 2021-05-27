@@ -40,6 +40,7 @@ typedef struct s_array
 typedef struct s_lst_st
 {
 	int             nbr;
+	int				pos_ord;
 	struct s_lst_st  *next;
 	struct s_lst_st  *prev;    
 	
@@ -125,10 +126,13 @@ void merge_insert_sort(t_data *data);
 void merge_insertion(t_data *data);
 void merge_insert_sort2(t_data *data);
 void merge_insert_sort3(t_data *data);
-void insertion_from_b(t_data *data);
 void chunk_sort(t_data *data);
-void insertion_a_to_b(t_data *data);
-void insertion_one_of_b(t_data *data);
+void insertion_one_in_a(t_data *data);
+void insertion_one_in_b(t_data *data);
+void merge_sort_a(t_data *data, int sort);
+void merge_sort_b(t_data *data);
+void randix_sort(t_data *data);
+int stack_a_is_sorted(t_data *data);
 
 int find_min_sort(t_data *data);
 

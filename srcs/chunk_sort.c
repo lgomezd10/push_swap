@@ -97,11 +97,9 @@ void chunk_sort(t_data *data)
         {
             find_nbr_up(data, &chunks);
             find_nbr_down(data, &chunks);
-            /*
             print_stack(stack, 'a');
             print_stack(&data->stack_b, 'b');
             printf("found up: %d, found down: %d\n", chunks.found_up, chunks.found_down);
-            */
             if (chunks.pos_up < 0)
                 not_found = 1;
             else if (chunks.pos_up <= chunks.pos_down)
@@ -109,7 +107,7 @@ void chunk_sort(t_data *data)
             else
                 move_up_a(data, chunks.found_down);
             push_b(data);
-            sort_top(data);
+            //sort_top(data);
         }
         chunks.chunk++;
         not_found = 0;
@@ -120,10 +118,11 @@ void chunk_sort(t_data *data)
         */
     while (data->stack_b.size > 0)
     {
-        insertion_one_of_b(data);
+        insertion_one_in_a(data);
         /*
-        move_up_b(data, data->stack_b.bigger);
+        move_up_a(data, data->stack_b.smaller);
         push_a(data);
         */
     }
+    move_up_a(data, stack->smaller);
 }

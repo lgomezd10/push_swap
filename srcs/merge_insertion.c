@@ -1,27 +1,5 @@
 #include "../includes/push_swap.h"
 
-void insertion_one_of_b(t_data *data)
-{
-	
-	int nbr;
-	t_stack *stack_a;
-	t_stack *stack_b;
-	int prev;
-
-	
-	stack_a = &data->stack_a;
-	stack_b = &data->stack_b;
-    nbr = stack_b->start->nbr;
-    if (nbr > data->stack_a.bigger || nbr < stack_a->smaller)
-        move_up_a(data, stack_a->smaller);
-    else
-    {
-        prev = find_prev_a(*stack_a, nbr);
-        move_up_a(data, prev);
-    }	
-    push_a(data);
-}
-
 void merge_insertion(t_data *data)
 {
 	t_stack *stack;
@@ -51,7 +29,7 @@ void merge_insertion(t_data *data)
 		if (size2 < 2)
 		{
 			while (stack->size < size)		
-				insertion_one_of_b(data);				
+				insertion_one_in_a(data);				
 		}
 		else
 		{
