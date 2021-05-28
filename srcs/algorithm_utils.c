@@ -67,6 +67,36 @@ void merge_sort_a(t_data *data, int sort)
 				sort_top(data);
 			temp = data->stack_a.start;
 		}
+		//sort_top(data);
+		merge_sort_a(data, sort);
+	}
+	else
+		sort_top(data);
+}
+
+void merge_sort_a_v2(t_data *data, int sort)
+{
+	t_stack *stack;
+	t_lst_st *temp;
+	int middle;
+	int size;
+
+	stack = &data->stack_a;
+	size = stack->size;
+	if (stack->size > 2)
+	{
+		middle = get_middle_temp(data, stack);
+		temp = data->stack_a.start;
+		while (temp && size--)
+		{
+			if (temp->nbr <= middle)
+				push_b(data);
+			else
+				rotate_a(data);
+			if (sort)
+				sort_top(data);
+			temp = data->stack_a.start;
+		}
 		sort_top(data);
 		merge_sort_a(data, sort);
 	}
@@ -85,7 +115,7 @@ void merge_sort_b(t_data *data)
 	{
 		middle = get_middle_temp(data, stack);
 		temp = data->stack_b.start;
-		while (temp && size)
+		while (temp && size--)
 		{	
 			if (temp->nbr >= middle)
 				push_a(data);

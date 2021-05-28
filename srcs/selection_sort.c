@@ -20,16 +20,17 @@ int	find_prev_a(t_stack stack, int nbr)
 	int prev;
 
 	sorted = get_array_sorted(stack);
-	i = sorted->size;
-	while (--i)
+	i = 0;
+	while (i < sorted->size)
 	{
-		if (nbr > sorted->array[i])
+		if (nbr > sorted->array[i] && nbr < sorted->array[i + 1])
 		{
 			prev = sorted->array[i + 1];
 			free(sorted->array);
 			free(sorted);
 			return(prev);
 		}
+		i++;
 	}
 	return (0);
 }
@@ -88,7 +89,7 @@ void selection_sort(t_data *data)
 {
 	int nbr;
 	
-	while (!is_sort_increasing(data->stack_a.start) && data->stack_a.size > 0)
+	while (!stack_a_is_sorted(data) && data->stack_a.size > 0)
 	{
 		nbr = data->stack_a.smaller;
 		move_up_a(data, nbr);
@@ -96,4 +97,29 @@ void selection_sort(t_data *data)
 	}
 	while (data->stack_b.size > 0)
 		push_a(data);    
+}
+
+void selection_sort_b(t_data *data)
+{
+	int nbr;
+	
+	while (data->stack_b.size > 0)
+	{
+		nbr = data->stack_b.bigger;
+		move_up_b(data, nbr);
+		push_a(data);
+	}  
+}
+
+void div_selection_sort(t_data *data)
+{
+	int nbr;
+	
+	divide_a(data);
+	while (data->stack_b.size > 0)
+	{
+		insertion_one_in_a(data);
+	}
+	selection_sort(data);
+
 }

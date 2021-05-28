@@ -83,8 +83,9 @@ t_lst_st *add_new_back(t_stack *stack, int nbr);
 void    add_element_front(t_stack *stack, t_lst_st *element);
 void    add_element_back(t_stack *stack, t_lst_st *element);
 void	remove_element(t_stack *stack, t_lst_st *element);
-int is_sort_increasing(t_lst_st *list);
-int is_sort_decreasing(t_lst_st *list);
+int	is_all_sorted(t_data *data);
+int stack_a_is_sorted(t_data *data);
+int stack_b_is_sorted(t_data *data);
 void swap_stack(t_stack *stack);
 void move_of_stack(t_stack *src, t_stack *dest);
 void rotate_stack(t_stack *stack);
@@ -133,7 +134,15 @@ void merge_sort_a(t_data *data, int sort);
 void merge_sort_b(t_data *data);
 void randix_sort(t_data *data);
 int stack_a_is_sorted(t_data *data);
-
+int a_is_sorted(t_data *data);
+int b_is_sorted(t_data *data);
+void divide_a(t_data *data);
+void div_selection_sort(t_data *data);
+void selection_sort_b(t_data *data);
+void merge_insert_sort4(t_data *data);
+void merge_insert_sort4_1(t_data *data);
+void merge_insert_sort5(t_data *data);
+void merge_sort_a_v2(t_data *data, int sort);
 int find_min_sort(t_data *data);
 
 #endif

@@ -116,13 +116,16 @@ void chunk_sort(t_data *data)
     while (data->stack_b.size > 0)
         push_a(data);
         */
+    selection_sort_b(data);
+    /*
     while (data->stack_b.size > 0)
     {
         insertion_one_in_a(data);
-        /*
+        
         move_up_a(data, data->stack_b.smaller);
         push_a(data);
-        */
+        
     }
+    */
     move_up_a(data, stack->smaller);
 }

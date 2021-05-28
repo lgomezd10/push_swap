@@ -42,20 +42,3 @@ int get_middle(t_data *data)
     }
     return (0);
 }
-
-int stack_a_is_sorted(t_data *data)
-{
-    int i;
-    t_lst_st *temp;
-
-    temp = data->stack_a.start;
-    i = 0;
-    while (temp)
-    {
-        if (temp->pos_ord != i)
-            return(0);
-        temp = temp->next;
-        i++;
-    }
-    return (1);
-}

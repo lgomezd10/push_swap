@@ -27,7 +27,7 @@ void randix_sort(t_data *data)
     while ((max_pos >> max_bits) != 0)
         max_bits++;
     i = 0;
-    while (i < max_bits && !stack_a_is_sorted(data))
+    while (i < max_bits && !is_all_sorted(data))
     {
         count = 0;
         while (count < data->sorted->size)

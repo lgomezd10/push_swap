@@ -90,24 +90,28 @@ void load_functions(t_function **array_f)
     int i;
     t_function *array;
 
-    array = (t_function *)ft_calloc(sizeof(t_function), 8);
+    array = (t_function *)ft_calloc(sizeof(t_function), 15);
     if (!array)
         show_error();
     i = 0;
-    /* array[i++] = bubble_sort_a;    
-    array[i++] = selection_sort;
-    array[i++] = bubble_sort_2;
-    array[i++] = insertion_sort;  */   
+    //array[i++] = bubble_sort_a;    
+    //array[i++] = selection_sort;
+    //array[i++] = merge_insert_sort4;
+    array[i++] = merge_insert_sort4_1;
+    //array[i++] = merge_insert_sort5;
+    
+    //array[i++] = bubble_sort_2;
+    /*
+    array[i++] = insertion_sort; 
     array[i++] = merge_short;
     array[i++] = merge_insertion;
-    //array[i++] = merge_select_sort; 
-    //REVISAR ARRIBA Y ABAJO QUE DEBE HABER UN FALLO CON merger_b
-    //array[i++] = merge_insert_sort;
+    array[i++] = merge_select_sort; 
+    array[i++] = merge_insert_sort;
     array[i++] = merge_insert_sort2;    
-    array[i++] = merge_insert_sort3;    
+    array[i++] = merge_insert_sort3; 
     //array[i++] = chunk_sort; 
     array[i++] = randix_sort; 
-      
+      */
     //array[i++] = ger_sort;
     
 
@@ -137,7 +141,7 @@ int main(int argc, char **argv)
         while (array_f[i] != 0)
         {
             load_stack(&data, argc, numbers);            
-            if (!is_sort_increasing(data.stack_a.start))
+            if (!is_all_sorted(&data))
             {
                 array_f[i](&data);
                 /*
@@ -158,9 +162,9 @@ int main(int argc, char **argv)
                 i = 0;
             
         }        
-        //print_solution(solution.start);
+        print_solution(solution.start);
         
-        printf("Solucion seleccionada por funcion %d veces: %d\n", solution.func, solution.size);
+        //printf("Solucion seleccionada por funcion %d veces: %d\n", solution.func, solution.size);
         //print_stack(&solution, 'S');
         
         
