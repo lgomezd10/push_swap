@@ -62,18 +62,19 @@ void load_functions(t_function **array_f)
     int i;
     t_function *array;
 
-    array = (t_function *)ft_calloc(sizeof(t_function), 15);
+    array = (t_function *)ft_calloc(sizeof(t_function), 20);
     if (!array)
         show_error();
     i = 0;
     
-    array[i++] = bubble_sort_a;  
+    array[i++] = bubble_sort_a;  //0
      
-    array[i++] = selection_sort;
-    array[i++] = merge_insert_sort4;
-    array[i++] = merge_insert_sort4_1;
+    array[i++] = selection_sort; //1
+    array[i++] = merge_insert_sort4; //2
+    array[i++] = merge_insert_sort4_1; //3
+    array[i++] = merge_insert_sort4_2; //4
     
-    array[i++] = merge_insert_sort5;
+    array[i++] = merge_insert_sort5; //5
     
     
     array[i++] = bubble_sort_2;
@@ -128,7 +129,7 @@ int main(int argc, char **argv)
                 
                 print_stack(&data.operations, 'O');
                 */
-                //printf("solucion ordenada: %d en %d movimientos\n", is_all_sorted(&data), data.operations.size);
+                printf("solucion ordenada: %d en %d movimientos\n", is_all_sorted(&data), data.operations.size);
                 
                 save_and_restart(&data, &solution, i);
                 
@@ -142,9 +143,9 @@ int main(int argc, char **argv)
                 break;
             
         }
-        print_solution(solution.start);
+        //print_solution(solution.start);
         
-        //printf("Solucion seleccionada por funcion %d veces: %d\n", solution.func, solution.size);
+        printf("Solucion seleccionada por funcion %d veces: %d\n", solution.func, solution.size);
         //print_stack(&solution, 'S');
         
         

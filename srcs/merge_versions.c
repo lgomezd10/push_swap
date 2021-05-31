@@ -37,10 +37,14 @@ void merge_insert_sort4(t_data *data)
 		insertion en b de los no ordenador y vuelta a a*/
       merge_sort_a(data, 0);
       
+      selection_sort_b(data);
+      /*
       while (data->stack_b.size > 0)
       {
          insertion_one_in_a(data);
+         
       }
+      */
       move_down_a(data, data->stack_a.bigger);
       
 }
@@ -54,6 +58,21 @@ void merge_insert_sort4_1(t_data *data)
          insertion_one_in_a(data);
       move_down_a(data, data->stack_a.bigger);
       selection_sort_b(data);
+      
+}
+
+void merge_insert_sort4_2(t_data *data)
+{
+	/*Hacmoes el merge sort a, devolvemos la mitad haciendo insertion a, hacemos merger de b
+		insertion en b de los no ordenador y vuelta a a*/
+      merge_sort_a(data, 0);
+      while (data->stack_b.size > 0)
+      {
+         insertion_one_in_a(data);
+         
+      }
+      
+      move_down_a(data, data->stack_a.bigger);
       
 }
 

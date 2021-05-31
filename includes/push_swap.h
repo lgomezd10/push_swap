@@ -141,6 +141,7 @@ void div_selection_sort(t_data *data);
 void selection_sort_b(t_data *data);
 void merge_insert_sort4(t_data *data);
 void merge_insert_sort4_1(t_data *data);
+void merge_insert_sort4_2(t_data *data);
 void merge_insert_sort5(t_data *data);
 void merge_sort_a_v2(t_data *data, int sort);
 int find_min_sort(t_data *data);
