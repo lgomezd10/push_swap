@@ -6,7 +6,7 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 18:44:49 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/05/27 17:02:31 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/05/31 18:59:44 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,18 @@ void selection_sort(t_data *data)
 	}
 	while (data->stack_b.size > 0)
 		push_a(data);    
+}
+
+void selection_sort_a(t_data *data)
+{
+	int nbr;
+	
+	while (data->stack_a.size > 0)
+	{
+		nbr = data->stack_a.bigger;
+		move_up_a(data, nbr);
+		push_b(data);
+	}  
 }
 
 void selection_sort_b(t_data *data)

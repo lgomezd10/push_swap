@@ -26,11 +26,7 @@ FILES = save_restart \
 	merge_sort \
 	array_sorted \
 	merge_versions \
-	bubble_sort_2 \
-	ger_sort \
-	merge_insertion \
 	merge_utils \
-	chunk_sort \
 	algorithm_utils \
 	randix_sort \
 	move_stacks_utils \

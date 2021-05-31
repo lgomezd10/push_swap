@@ -67,36 +67,20 @@ void load_functions(t_function **array_f)
         show_error();
     i = 0;
     
-    array[i++] = bubble_sort_a;  //0
-     
+    array[i++] = bubble_sort;  //0     
     array[i++] = selection_sort; //1
-    array[i++] = merge_insert_sort4; //2
-    array[i++] = merge_insert_sort4_1; //3
-    array[i++] = merge_insert_sort4_2; //4
-    
-    array[i++] = merge_insert_sort5; //5
-    
-    
-    array[i++] = bubble_sort_2;
-    
-     array[i++] = insertion_sort; 
-     array[i++] = merge_short;
-     array[i++] = merge_insertion;
-     array[i++] = merge_select_sort; 
-     array[i++] = merge_insert_sort;
-     array[i++] = merge_insert_sort2;    
-     array[i++] = merge_insert_sort3; 
-     
-    //array[i++] = chunk_sort; 
-    //array[i++] = randix_sort; 
-      
-    //array[i++] = ger_sort;
-    
+    array[i++] = merge_ab_select_sort; //2
+    array[i++] = merge_ab_insert_sort; //3    
+    array[i++] = merge_a_insert_sort; //4
+    array[i++] = merge_a_select_sort; //5
+    array[i++] = merge_a_insert_select_sort; //6       
+    array[i++] = insertion_sort; //8
+    array[i++] = merge_short; //9
+    array[i++] = randix_sort; //10
 
     *array_f = array;
 }
 
-/* controlar al max min integer*/
 int main(int argc, char **argv)
 {
     int i;
@@ -125,8 +109,7 @@ int main(int argc, char **argv)
                 /*
                 printf("Despues de ejecutar la funcion %d\n", i);
                 print_stack(&data.stack_a, 'A');
-                print_stack(&data.stack_b, 'B');
-                
+                print_stack(&data.stack_b, 'B');                
                 print_stack(&data.operations, 'O');
                 */
                 printf("solucion ordenada: %d en %d movimientos\n", is_all_sorted(&data), data.operations.size);

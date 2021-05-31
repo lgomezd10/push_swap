@@ -20,20 +20,20 @@ void randix_sort(t_data *data)
     int max_bits;
     int i;
     int count;
-    int nbr;
+    int pos;
 
     max_num = data->sorted->size - 1;
     max_bits = 0;
     while ((max_num >> max_bits) != 0)
         max_bits++;
     i = 0;
-    while (i < max_bits)
+    while (i < max_bits && !is_all_sorted(data))
     {
         count = 0;
         while (count < data->sorted->size)
         {
-            nbr = data->stack_a.start->nbr;
-            if (((nbr >> i) & 1) == 1)
+            pos = data->stack_a.start->pos_ord;
+            if (((pos >> i) & 1) == 1)
                 rotate_a(data);
             else
                 push_b(data);
