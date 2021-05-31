@@ -55,35 +55,7 @@ void print_solution(t_lst_st *list)
     }    
 }
 
-void load_stack(t_data *data, int argc, char **argv)
-{
-    t_list *list;
-    int nbr;
-    int i;
 
-    i = 1;
-    if (argc == 2)
-    {
-        argc = 0;
-        while (argv[argc])
-            argc++;
-        i = 0;
-    }
-    while (i < argc)
-    {
-        if (ft_str_is_nbr(argv[i]))
-        {
-            nbr = ft_atoi(argv[i]);
-            add_new_back(&data->stack_a, nbr);
-        }
-        else
-            show_error();
-        i++;
-    }
-    data->stack_a.name = 'a';
-    data->stack_b.name = 'b';
-    sort_array(data);
-}
 
 void load_functions(t_function **array_f)
 {
@@ -94,24 +66,29 @@ void load_functions(t_function **array_f)
     if (!array)
         show_error();
     i = 0;
-    //array[i++] = bubble_sort_a;    
-    //array[i++] = selection_sort;
-    //array[i++] = merge_insert_sort4;
-    array[i++] = merge_insert_sort4_1;
-    //array[i++] = merge_insert_sort5;
     
-    //array[i++] = bubble_sort_2;
-    /*
-    array[i++] = insertion_sort; 
-    array[i++] = merge_short;
-    array[i++] = merge_insertion;
-    array[i++] = merge_select_sort; 
-    array[i++] = merge_insert_sort;
-    array[i++] = merge_insert_sort2;    
-    array[i++] = merge_insert_sort3; 
+    array[i++] = bubble_sort_a;  
+     
+    array[i++] = selection_sort;
+    array[i++] = merge_insert_sort4;
+    array[i++] = merge_insert_sort4_1;
+    
+    array[i++] = merge_insert_sort5;
+    
+    
+    array[i++] = bubble_sort_2;
+    
+     array[i++] = insertion_sort; 
+     array[i++] = merge_short;
+     array[i++] = merge_insertion;
+     array[i++] = merge_select_sort; 
+     array[i++] = merge_insert_sort;
+     array[i++] = merge_insert_sort2;    
+     array[i++] = merge_insert_sort3; 
+     
     //array[i++] = chunk_sort; 
-    array[i++] = randix_sort; 
-      */
+    //array[i++] = randix_sort; 
+      
     //array[i++] = ger_sort;
     
 
@@ -140,7 +117,7 @@ int main(int argc, char **argv)
         i = 0;        
         while (array_f[i] != 0)
         {
-            load_stack(&data, argc, numbers);            
+            load_stack(&data, argc, numbers);
             if (!is_all_sorted(&data))
             {
                 array_f[i](&data);
@@ -148,8 +125,11 @@ int main(int argc, char **argv)
                 printf("Despues de ejecutar la funcion %d\n", i);
                 print_stack(&data.stack_a, 'A');
                 print_stack(&data.stack_b, 'B');
+                
                 print_stack(&data.operations, 'O');
                 */
+                //printf("solucion ordenada: %d en %d movimientos\n", is_all_sorted(&data), data.operations.size);
+                
                 save_and_restart(&data, &solution, i);
                 
                 /*
@@ -159,9 +139,9 @@ int main(int argc, char **argv)
                 i++;
             }
             else
-                i = 0;
+                break;
             
-        }        
+        }
         print_solution(solution.start);
         
         //printf("Solucion seleccionada por funcion %d veces: %d\n", solution.func, solution.size);

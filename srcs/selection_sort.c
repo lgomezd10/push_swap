@@ -19,7 +19,7 @@ int	find_prev_a(t_stack stack, int nbr)
 	int i;
 	int prev;
 
-	sorted = get_array_sorted(stack);
+	sorted = get_array_sorted(stack, 0);
 	i = 0;
 	while (i < sorted->size)
 	{
@@ -41,7 +41,7 @@ int	find_prev_b(t_stack stack, int nbr)
 	int i;
 	int prev;
 
-	sorted = get_array_sorted(stack);
+	sorted = get_array_sorted(stack, 0);
 	i = 0;
 	while (i < sorted->size)
 	{
@@ -121,5 +121,4 @@ void div_selection_sort(t_data *data)
 		insertion_one_in_a(data);
 	}
 	selection_sort(data);
-
 }

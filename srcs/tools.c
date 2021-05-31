@@ -10,7 +10,10 @@ int is_all_sorted(t_data *data)
     while (temp)
     {
         if (temp->pos_ord != i)
+        {
+            //printf("NO esta ordenado el elemento temp: %d, con pos_order %d\n", temp->nbr, temp->pos_ord);
             return(0);
+        }
         temp = temp->next;
         i++;
     }
@@ -111,7 +114,7 @@ void divide_a(t_data *data)
     {
         middle = get_middle_temp(data, stack);
         temp = data->stack_a.start;        
-        while (temp && stack->size > 2 && size)
+        while (temp && size)
         {		
             
             if (temp->nbr <= middle)

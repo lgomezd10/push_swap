@@ -76,7 +76,7 @@ typedef struct s_data
 
 typedef void (*t_function)(t_data *);
 
-
+void load_stack(t_data *data, int argc, char **argv);
 void show_error();
 void save_and_restart(t_data *data, t_stack *op, int func);
 t_lst_st *add_new_back(t_stack *stack, int nbr);
@@ -119,7 +119,7 @@ void sort_array_b(t_data *data);
 int get_middle_temp(t_data *data, t_stack *stack);
 void bubble_sort_2(t_data *data);
 void ger_sort(t_data *data);
-t_array *get_array_sorted(t_stack stack);
+t_array *get_array_sorted(t_stack stack, int firts_time);
 int	find_prev_a(t_stack stack, int nbr);
 int	find_prev_b(t_stack stack, int nbr);
 void merge_select_sort(t_data *data);

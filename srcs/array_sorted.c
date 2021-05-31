@@ -27,11 +27,12 @@ int find_next_min(t_stack stack, int min, int pos)
         return (min);
 }
 
-t_array *get_array_sorted(t_stack stack)
+t_array *get_array_sorted(t_stack stack, int firts_time)
 {
     t_array *array;
     int *sorted;
     int i;
+    int pos;
     
     array = ft_calloc(sizeof(t_array), 1);
     if (!array)
@@ -43,7 +44,12 @@ t_array *get_array_sorted(t_stack stack)
     i = 0;
     sorted[i] = stack.smaller;
     while (++i < stack.size)
-        sorted[i] = find_next_min(stack, sorted[i - 1], i);
+    {
+        pos = i;
+        if (!firts_time)
+            pos = -1;
+        sorted[i] = find_next_min(stack, sorted[i - 1], pos);
+    }
     array->array = sorted;
     return (array);
 }
@@ -55,7 +61,7 @@ void sort_array(t_data *data)
 
     stack = data->stack_a;
     data->size = stack.size;
-    data->sorted = get_array_sorted(stack);
+    data->sorted = get_array_sorted(stack, 1);
     i = 0;
     while (i < stack.size - 1)
     {

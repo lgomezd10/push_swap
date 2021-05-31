@@ -4,10 +4,17 @@ LIFBT = ${DIRLIBFT}/libft.a
 
 NAME = push_swap
 
+NAME_BONUS = checker
+
 RM = rm -rf
+
+MAIN = srcs/main.c
+
+MAINBONUS = srcs_bonus/main.c
 
 FILES = save_restart \
 	handle_errors \
+	load_stacks \
 	lists \
 	tools \
 	operations \
@@ -33,8 +40,15 @@ SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
 
 OBJS =${SRCS:.c=.o}
 
-${NAME}: ${LIFBT} ${OBJS}
-	gcc -o ${NAME} srcs/main.c ${OBJS} ${LIFBT}
+OBJSMAIN =${MAIN:.c=.o}
+
+OBJSMAINBONUS =${MAINBONUS:.c=.o}
+
+${NAME}: ${LIFBT} ${OBJS} ${OBJSMAIN}
+	gcc -o ${NAME} ${OBJSMAIN} ${OBJS} ${LIFBT}
+
+bonus: ${LIFBT} ${OBJS} ${OBJSMAINBONUS}
+	gcc -o ${NAME_BONUS} ${OBJSMAINBONUS} ${OBJS} ${LIFBT}
 
 testc: clean test
 

@@ -16,18 +16,18 @@ void print_binary(int n)
 
 void randix_sort(t_data *data)
 {
-    int max_pos;
+    int max_num;
     int max_bits;
     int i;
     int count;
     int nbr;
 
-    max_pos = data->sorted->size - 1;
+    max_num = data->sorted->size - 1;
     max_bits = 0;
-    while ((max_pos >> max_bits) != 0)
+    while ((max_num >> max_bits) != 0)
         max_bits++;
     i = 0;
-    while (i < max_bits && !is_all_sorted(data))
+    while (i < max_bits)
     {
         count = 0;
         while (count < data->sorted->size)
@@ -38,10 +38,11 @@ void randix_sort(t_data *data)
             else
                 push_b(data);
             count++;
+            
         }
         i++;
         while (data->stack_b.size > 0)
-            push_a(data);        
+            push_a(data);      
     }   
     
 }

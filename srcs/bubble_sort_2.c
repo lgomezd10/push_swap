@@ -70,10 +70,12 @@ int check_top(t_data *data)
         {
             move_down_a(data, data->stack_a.bigger);
             move_down_b(data, data->stack_b.smaller);
+            /*
             printf("********************************************************************************\n");
             print_stack(stack_a, 'a');
             print_stack(stack_b, 'b');
             printf("sorted_a: %d, sorted_b: %d\n", stack_a_is_sorted(data), stack_b_is_sorted(data));
+            */
         }
         data->change = 0;
     }
@@ -119,9 +121,6 @@ void bubble_sort_2(t_data *data)
         }
         move_down_a(data, data->stack_a.bigger);
         move_down_b(data, data->stack_b.smaller);
-        printf("despues de mover abajo\n");
-        print_stack(stack_a, 'a');
-        print_stack(stack_b, 'b');
         while (stack_b->size)
         {
             insertion_one_in_a(data);
