@@ -30,7 +30,9 @@ FILES = save_restart \
 	algorithm_utils \
 	randix_sort \
 	move_stacks_utils \
-	test_utils
+	test_utils \
+	move_nbr_utils \
+	markup_sort
 
 SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
 

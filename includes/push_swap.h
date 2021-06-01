@@ -41,6 +41,7 @@ typedef struct s_lst_st
 {
 	int             nbr;
 	int				pos_ord;
+	int				is_sorted;
 	struct s_lst_st  *next;
 	struct s_lst_st  *prev;    
 	
@@ -137,5 +138,8 @@ void merge_a_insert_sort(t_data *data);
 void merge_a_select_sort(t_data *data);
 void merge_a_insert_select_sort(t_data *data);
 void selection_sort_a(t_data *data);
-
+int get_pos_prev_of(t_data *data, t_stack *stack, int pos);
+int get_pos_next_of(t_data *data, t_stack *stack, int pos);
+int get_number_actions(t_data *data, t_stack *stack, int pos_stack);
+int get_next_of_a(t_data *data, t_stack *stack, int pos);
 #endif

@@ -65,7 +65,6 @@ void    add_element_back(t_stack *stack, t_lst_st *element)
 		stack->start = element;
 		stack->end = element;
 		stack->size = 1;
-
 	}
 	else
 	{
