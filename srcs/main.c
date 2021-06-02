@@ -66,7 +66,7 @@ void load_functions(t_function **array_f)
     if (!array)
         show_error();
     i = 0;
-    
+    /*
     array[i++] = bubble_sort;  //0     
     array[i++] = selection_sort; //1
     array[i++] = merge_ab_select_sort; //2
@@ -77,6 +77,9 @@ void load_functions(t_function **array_f)
     array[i++] = insertion_sort; //8
     array[i++] = merge_short; //9
     array[i++] = randix_sort; //10
+    */
+    array[i++] = markup_sort;
+    //array[i++] = merge_a_markup_sort;
 
     *array_f = array;
 }
@@ -106,12 +109,12 @@ int main(int argc, char **argv)
             if (!is_all_sorted(&data))
             {
                 array_f[i](&data);
-                /*
+                
                 printf("Despues de ejecutar la funcion %d\n", i);
                 print_stack(&data.stack_a, 'A');
                 print_stack(&data.stack_b, 'B');                
                 print_stack(&data.operations, 'O');
-                */
+                
                 printf("solucion ordenada: %d en %d movimientos\n", is_all_sorted(&data), data.operations.size);
                 
                 save_and_restart(&data, &solution, i);

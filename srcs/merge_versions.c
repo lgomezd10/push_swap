@@ -30,6 +30,18 @@ void merge_a_select_sort(t_data *data)
       selection_sort_b(data);     
 }
 
+void merge_a_markup_sort(t_data *data)
+{
+      merge_sort_a(data);
+      while (data->stack_b.size)
+      {
+         do_best_action_to_a(data);
+      }
+        
+      
+      move_down_a(data, data->stack_a.bigger);
+}
+
 void merge_a_insert_select_sort(t_data *data)
 {
       merge_sort_a(data);                

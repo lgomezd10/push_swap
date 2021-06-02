@@ -32,7 +32,8 @@ FILES = save_restart \
 	move_stacks_utils \
 	test_utils \
 	move_nbr_utils \
-	markup_sort
+	markup_sort \
+	best_action
 
 SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
 

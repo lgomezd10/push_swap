@@ -138,8 +138,12 @@ void merge_a_insert_sort(t_data *data);
 void merge_a_select_sort(t_data *data);
 void merge_a_insert_select_sort(t_data *data);
 void selection_sort_a(t_data *data);
-int get_pos_prev_of(t_data *data, t_stack *stack, int pos);
-int get_pos_next_of(t_data *data, t_stack *stack, int pos);
+int actions_to_move_a(t_data *data, int pos);
+int actions_to_move_b(t_data *data, int pos);
 int get_number_actions(t_data *data, t_stack *stack, int pos_stack);
 int get_next_of_a(t_data *data, t_stack *stack, int pos);
+int get_pos_in_stack(t_data *data, t_stack *stack, int nbr);
+void do_best_action_to_a(t_data *data);
+void markup_sort(t_data *data);
+void merge_a_markup_sort(t_data *data);
 #endif
