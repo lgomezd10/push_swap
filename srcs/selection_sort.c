@@ -6,131 +6,79 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 18:44:49 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/05/31 18:59:44 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/02 20:42:37 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../includes/push_swap.h"
 
-int	find_prev_a(t_stack stack, int nbr)
+int		get_pos_of_nbr(t_stack *stack, int nbr)
 {
-	t_array *sorted;
-	int i;
-	int prev;
+	t_lst_st *temp;
 
-	sorted = get_array_sorted(stack, 0);
-	i = 0;
-	while (i < sorted->size)
+	temp = stack->start;
+	while (temp)
 	{
-		if (nbr > sorted->array[i] && nbr < sorted->array[i + 1])
-		{
-			prev = sorted->array[i + 1];
-			free(sorted->array);
-			free(sorted);
-			return(prev);
-		}
-		i++;
+		if (temp->nbr == nbr)
+			return (temp->pos_ord);
+		temp = temp->next;
 	}
-	return (0);
+	return (-1);
 }
 
-int	find_prev_b(t_stack stack, int nbr)
+void	selection_sort_a(t_data *data)
 {
-	t_array *sorted;
-	int i;
-	int prev;
+	int	nbr;
 
-	sorted = get_array_sorted(stack, 0);
-	i = 0;
-	while (i < sorted->size)
-	{
-		if (nbr < sorted->array[i])
-		{
-			prev = sorted->array[i - 1];
-			free(sorted->array);
-			free(sorted);
-			return(prev);
-		}
-		i++;
-	}
-	return (0);
-}
-
-
-void insertion_sort(t_data *data)
-{
-	
-	int nbr;
-	t_stack *stack_a;
-	t_stack *stack_b;
-	int prev;
-
-	stack_a = &data->stack_a;
-	stack_b = &data->stack_b;
-	while (stack_a->size > 0)
-	{
-		nbr = stack_a->start->nbr;		
-		if (nbr > data->stack_b.bigger || nbr < stack_b->smaller)
-			move_up_b(data, stack_b->bigger);
-		else
-		{
-			prev = find_prev_b(*stack_b, nbr);
-			move_up_b(data, prev);
-		}	
-		push_b(data);
-	}
-	move_up_b(data, stack_b->bigger);
-	while (data->stack_b.size > 0)
-		push_a(data);
-}
-
-void selection_sort(t_data *data)
-{
-	int nbr;
-	
-	while (!stack_a_is_sorted(data) && data->stack_a.size > 0)
-	{
-		nbr = data->stack_a.smaller;
-		move_up_a(data, nbr);
-		push_b(data);
-	}
-	while (data->stack_b.size > 0)
-		push_a(data);    
-}
-
-void selection_sort_a(t_data *data)
-{
-	int nbr;
-	
 	while (data->stack_a.size > 0)
 	{
 		nbr = data->stack_a.bigger;
 		move_up_a(data, nbr);
 		push_b(data);
-	}  
-}
-
-void selection_sort_b(t_data *data)
-{
-	int nbr;
-	
-	while (data->stack_b.size > 0)
-	{
-		nbr = data->stack_b.bigger;
-		move_up_b(data, nbr);
-		push_a(data);
-	}  
-}
-
-void div_selection_sort(t_data *data)
-{
-	int nbr;
-	
-	divide_a(data);
-	while (data->stack_b.size > 0)
-	{
-		insertion_one_in_a(data);
 	}
-	selection_sort(data);
+}
+
+void	selection_sort_b(t_data *data)
+{
+	int	nbr;
+	t_stack *stack;
+
+	stack = &data->stack_b;
+	while (data->stack_b.size > 0)
+	{
+		/*
+		printf("prueba 1\n");
+		printf("pureba %d\n", get_pos_of_nbr(stack, stack->bigger));
+		if (stack->start->pos_ord + 1 == get_pos_of_nbr(stack, stack->bigger))
+		{
+			push_a(data);
+			nbr = data->stack_b.bigger;
+			move_up_b(data, nbr);
+			if (stack->start->pos_ord < stack->start->next->pos_ord)
+				swap_both(data);
+			else
+				swap_a(data);
+		}
+		else
+		{*/
+			nbr = data->stack_b.bigger;
+			move_up_b(data, nbr);
+			push_a(data);
+		//}
+	}
+}
+
+void	selection_sort(t_data *data)
+{
+	int	nbr;
+
+	while (!a_is_sorted(data) && data->stack_a.size > 0)
+	{
+		nbr = data->stack_a.smaller;
+		move_up_a(data, nbr);
+		push_b(data);
+	}
+	move_down_a(data, data->stack_a.bigger);
+	while (data->stack_b.size > 0)
+		push_a(data);
 }

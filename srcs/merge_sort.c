@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   merge_sort.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/02 16:38:42 by lgomez-d          #+#    #+#             */
+/*   Updated: 2021/06/02 18:59:42 by lgomez-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void	merge_sort_a(t_data *data)
@@ -66,10 +78,10 @@ static void	return_to_a(t_data *data, int size)
 
 void	merge_sort(t_data *data)
 {
-	t_stack *stack;
-	t_lst_st *temp;
-	int middle;
-	int size;
+	t_stack		*stack;
+	t_lst_st	*temp;
+	int			middle;
+	int			size;
 
 	stack = &data->stack_a;
 	move_down_a(data, data->stack_a.bigger);
@@ -91,3 +103,4 @@ void	merge_sort(t_data *data)
 		return_to_a(data, size);
 	}
 }
+

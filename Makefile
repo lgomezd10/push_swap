@@ -23,6 +23,7 @@ FILES = save_restart \
 	operations_both \
 	bubble_sort \
 	selection_sort \
+	insertion_sort \
 	merge_sort \
 	array_sorted \
 	merge_versions \
@@ -31,6 +32,7 @@ FILES = save_restart \
 	randix_sort \
 	move_stacks_utils \
 	test_utils \
+	divition_sort
 
 SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
 
@@ -56,9 +58,11 @@ ${LIFBT}:
 
 clean:
 	${RM} ${OBJS}
+	${RM} ${OBJSMAIN}
+	${RM} ${OBJSMAINBONUS}
 
 fclean:	clean
-	${MAKE} fclean -C ${DIRLIBFT}
-	${RM} test
-	${RM} ${Name}
+	${MAKE} fclean -C ${DIRLIBFT}	
+	${RM} ${NAME}
+	${RM} ${NAME_BONUS}
 

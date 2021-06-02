@@ -19,18 +19,6 @@ enum e_operations
 	Op_rrr
 };
 
-typedef struct s_chunks
-{
-	int chunk;
-	int divitions;
-	int found_up;
-	int pos_up;
-	int found_down;
-	int pos_down;
-
-
-}	t_chunks;
-
 typedef struct s_array
 {
 	int size;
@@ -41,7 +29,6 @@ typedef struct s_lst_st
 {
 	int             nbr;
 	int				pos_ord;
-	int				is_sorted;
 	struct s_lst_st  *next;
 	struct s_lst_st  *prev;    
 	
@@ -54,8 +41,9 @@ typedef struct s_stack
 	int         size;
 	int			smaller;
 	int			bigger;
+	int			pos_smaller;
+	int			pos_bigger;
 	int			func;
-	char		name;
 } t_stack;
 
 typedef struct s_data
@@ -64,14 +52,9 @@ typedef struct s_data
 	t_stack stack_b;
 	int		min_sorted;
 	int		pos_min_sorted;
-	int		min_sorted_b;
-	int		pos_min_sorted_b;
 	t_stack operations;
 	t_array		*sorted;
 	int size;
-	int			*sorted_b;
-	int size_b;
-	int change;
 	int func;
 } t_data;
 
@@ -80,13 +63,12 @@ typedef void (*t_function)(t_data *);
 void load_stack(t_data *data, int argc, char **argv);
 void show_error();
 void save_and_restart(t_data *data, t_stack *op, int func);
+void delete_list(t_lst_st **list);
 t_lst_st *add_new_back(t_stack *stack, int nbr);
 void    add_element_front(t_stack *stack, t_lst_st *element);
 void    add_element_back(t_stack *stack, t_lst_st *element);
 void	remove_element(t_stack *stack, t_lst_st *element);
 int	is_all_sorted(t_data *data);
-int stack_a_is_sorted(t_data *data);
-int stack_b_is_sorted(t_data *data);
 void swap_stack(t_stack *stack);
 void move_of_stack(t_stack *src, t_stack *dest);
 void rotate_stack(t_stack *stack);
@@ -124,11 +106,9 @@ void insertion_one_in_b(t_data *data);
 void merge_sort_a(t_data *data);
 void merge_sort_b(t_data *data);
 void randix_sort(t_data *data);
-int stack_a_is_sorted(t_data *data);
 int a_is_sorted(t_data *data);
 int b_is_sorted(t_data *data);
 void divide_a(t_data *data);
-void div_selection_sort(t_data *data);
 void selection_sort_b(t_data *data);
 int find_min_sort(t_data *data);
 void merge_ab_select_sort(t_data *data);
@@ -137,4 +117,6 @@ void merge_a_insert_sort(t_data *data);
 void merge_a_select_sort(t_data *data);
 void merge_a_insert_select_sort(t_data *data);
 void selection_sort_a(t_data *data);
+void	merge_sort_2(t_data *data);
+void divition_sort(t_data *data);
 #endif

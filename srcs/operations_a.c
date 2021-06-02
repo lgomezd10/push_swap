@@ -1,45 +1,57 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations_a.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/02 16:44:29 by lgomez-d          #+#    #+#             */
+/*   Updated: 2021/06/02 16:45:03 by lgomez-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-void swap_a(t_data *data)
+void	swap_a(t_data *data)
 {
-    t_stack *stack;
-    t_stack *operations;
+	t_stack	*stack;
+	t_stack	*operations;
 
-    stack = &data->stack_a;
-    operations = &data->operations;
-    swap_stack(stack);
-    add_new_back(operations, Op_sa);
+	stack = &data->stack_a;
+	operations = &data->operations;
+	swap_stack(stack);
+	add_new_back(operations, Op_sa);
 }
 
-void push_a(t_data *data)
+void	push_a(t_data *data)
 {
-    t_stack *stack;
-    t_stack *operations;
+	t_stack	*stack;
+	t_stack	*operations;
 
-    stack = &data->stack_a;
-    operations = &data->operations;
-    move_of_stack(&data->stack_b, &data->stack_a);
-    add_new_back(operations, Op_pa);
+	stack = &data->stack_a;
+	operations = &data->operations;
+	move_of_stack(&data->stack_b, &data->stack_a);
+	add_new_back(operations, Op_pa);
 }
 
-void rotate_a(t_data *data)
+void	rotate_a(t_data *data)
 {
-    t_stack *stack;
-    t_stack *operations;
+	t_stack	*stack;
+	t_stack	*operations;
 
-    stack = &data->stack_a;
-    operations = &data->operations;
-    rotate_stack(stack);
-    add_new_back(operations, Op_ra);
+	stack = &data->stack_a;
+	operations = &data->operations;
+	rotate_stack(stack);
+	add_new_back(operations, Op_ra);
 }
 
-void reverse_rotate_a(t_data *data)
+void	reverse_rotate_a(t_data *data)
 {
-    t_stack *stack;
-    t_stack *operations;
+	t_stack	*stack;
+	t_stack	*operations;
 
-    stack = &data->stack_a;
-    operations = &data->operations;
-    rotate_reverse_stack(stack);
-    add_new_back(operations, Op_rra);
+	stack = &data->stack_a;
+	operations = &data->operations;
+	rotate_reverse_stack(stack);
+	add_new_back(operations, Op_rra);
 }

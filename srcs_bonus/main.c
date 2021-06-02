@@ -36,6 +36,7 @@ void read_operations(t_data *data)
 
     fd = 0;
     no_end = 1;
+    str = 0;
     while (no_end)
     {
         no_end = get_next_line(fd, &str);

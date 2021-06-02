@@ -6,7 +6,7 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:28:27 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/05/31 19:44:46 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/02 15:54:32 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	bubble_sort(t_data *data)
 {
 	t_lst_st	*temp;
 	t_stack		*stack;
-	
+
 	stack = &data->stack_a;
 	temp = stack->start;
 	while (!a_is_sorted(data) && temp && temp->next && !is_all_sorted(data))

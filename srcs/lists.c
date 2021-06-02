@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lists.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/02 15:58:01 by lgomez-d          #+#    #+#             */
+/*   Updated: 2021/06/02 15:58:45 by lgomez-d         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-t_lst_st *add_new_back(t_stack *stack, int nbr)
+t_lst_st	*add_new_back(t_stack *stack, int nbr)
 {
-	t_lst_st    *new;
+	t_lst_st	*new;
 
 	new = (t_lst_st *)ft_calloc(sizeof(t_lst_st), 1);
 	if (!new)
@@ -28,9 +40,8 @@ t_lst_st *add_new_back(t_stack *stack, int nbr)
 	return (new);
 }
 
-void    add_element_front(t_stack *stack, t_lst_st *element)
+void	add_element_front(t_stack *stack, t_lst_st *element)
 {
-
 	element->prev = 0;
 	element->next = 0;
 	if (!stack->start)
@@ -54,7 +65,7 @@ void    add_element_front(t_stack *stack, t_lst_st *element)
 		stack->bigger = element->nbr;
 }
 
-void    add_element_back(t_stack *stack, t_lst_st *element)
+void	add_element_back(t_stack *stack, t_lst_st *element)
 {
 	element->prev = 0;
 	element->next = 0;
@@ -79,9 +90,9 @@ void    add_element_back(t_stack *stack, t_lst_st *element)
 		stack->bigger = element->nbr;
 }
 
-int find_element(t_lst_st *list, int smaller)
+int	find_element(t_lst_st *list, int smaller)
 {
-	int nbr;
+	int	nbr;
 
 	if (list)
 	{
@@ -98,10 +109,9 @@ int find_element(t_lst_st *list, int smaller)
 	}
 	else
 		return (0);
-	
 }
 
-void remove_element(t_stack *stack, t_lst_st *element)
+void	remove_element(t_stack *stack, t_lst_st *element)
 {
 	if (stack && element)
 	{
@@ -111,7 +121,7 @@ void remove_element(t_stack *stack, t_lst_st *element)
 			element->prev->next = element->next;
 		if (!element->next)
 			stack->end = element->prev;
-		else        
+		else
 			element->next->prev = element->prev;
 		stack->size--;
 		if (element->nbr == stack->bigger)
@@ -119,5 +129,4 @@ void remove_element(t_stack *stack, t_lst_st *element)
 		if (element->nbr == stack->smaller)
 			stack->smaller = find_element(stack->start, 1);
 	}
-	
 }

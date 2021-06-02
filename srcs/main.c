@@ -1,16 +1,5 @@
 #include "../includes/push_swap.h"
 
-/*
-void add_new_nbr(t_list *list, int nbr)
-{
-	int *number;
-
-	nbr = (int *)malloc(sizeof(int));
-	*number = nbr;
-	ft_lstadd_back(list, ft_lstnew(number));
-}
-*/
-
 char *operation_str(int nbr)
 {
 	char *str;
@@ -57,16 +46,16 @@ void print_solution(t_lst_st *list)
 
 void load_functions(t_function **array_f)
 {
-	int i;
-	t_function *array;
+	int			i;
+	t_function	*array;
 
 	array = (t_function *)ft_calloc(sizeof(t_function), 20);
 	if (!array)
 		show_error();
-	i = 0;
-	
-	array[i++] = bubble_sort;  //0   
-	array[i++] = selection_sort; //1      
+	i = 0;	
+	/*
+	array[i++] = bubble_sort;  //0
+	array[i++] = selection_sort; //1
 	array[i++] = insertion_sort; //2
 	array[i++] = merge_ab_select_sort; //3
 	array[i++] = merge_ab_insert_sort; //4   
@@ -75,19 +64,18 @@ void load_functions(t_function **array_f)
 	array[i++] = merge_a_insert_select_sort; //7
 	array[i++] = merge_sort; //8
 	array[i++] = randix_sort; //9
-	
-	
-
+	*/
+	array[i++] = divition_sort; //9
 	*array_f = array;
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int i;
-	t_data data;
-	t_stack solution;
-	t_function *array_f;
-	char **numbers;
+	int			i;
+	t_data		data;
+	t_stack		solution;
+	t_function	*array_f;
+	char		**numbers;
 	
 	if (argc == 2)
 		numbers = ft_split(argv[1], ' ');
@@ -105,12 +93,12 @@ int main(int argc, char **argv)
 			if (!is_all_sorted(&data))
 			{
 				array_f[i](&data);
-				/*
+				
 				printf("Despues de ejecutar la funcion %d\n", i);
 				print_stack(&data.stack_a, 'A');
 				print_stack(&data.stack_b, 'B');                
 				print_stack(&data.operations, 'O');
-				*/
+				
 				printf("solucion ordenada: %d en %d movimientos\n", is_all_sorted(&data), data.operations.size);
 				
 				save_and_restart(&data, &solution, i);
