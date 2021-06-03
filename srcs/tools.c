@@ -86,6 +86,8 @@ int needed_swap_a(t_data *data)
 	if (data->stack_a.size > 1)
 	{
 		temp = data->stack_a.start;
+		if (temp->nbr == data->stack_a.bigger && temp->next->nbr == data->stack_a.smaller)
+			return (0);
 		if (temp->pos_ord > temp->next->pos_ord);
 			return (1);
 	}
@@ -101,6 +103,8 @@ int needed_swap_b(t_data *data)
 	if (data->stack_b.size > 1)
 	{
 		temp = data->stack_b.start;
+		if (temp->nbr == data->stack_b.smaller && temp->next->nbr == data->stack_b.bigger)
+			return (0);
 		if (temp->pos_ord < temp->next->pos_ord)
 			return (1);
 	}

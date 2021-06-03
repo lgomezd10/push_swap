@@ -56,6 +56,7 @@ void divition_sort(t_data *data, int (*get_size)(t_data *))
 		chunk++;
 	}
 	move_down_a(data, data->stack_a.bigger);
+	print_stack(&data->stack_a, 'a');
 	while (data->stack_b.size)
 		selection_sort_b(data);
 }

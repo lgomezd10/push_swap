@@ -36,9 +36,9 @@ static void push_and_swap(t_data *data)
 	nbr = data->stack_b.bigger;
 	move_up_b(data, nbr);
 	push_a(data);	
-	if (needed_swap_b(data))
+	if (needed_swap_b(data) && needed_swap_a(data))
 		swap_both(data);
-	else
+	else if (needed_swap_a(data))
 		swap_a(data);
 }
 

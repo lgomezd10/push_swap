@@ -91,14 +91,14 @@ int	main(int argc, char **argv)
 			if (!is_all_sorted(&data))
 			{
 					array_f[i](&data);
-					/*
+					
 					printf("Despues de ejecutar la funcion %d\n", i);
 					print_stack(&data.stack_a, 'A');
 					print_stack(&data.stack_b, 'B');     
-					*/           
+					          
 					//print_stack(&data.operations, 'O');
 					
-					//printf("solucion ordenada: %d en %d movimientos\n", is_all_sorted(&data), data.operations.size);
+					printf("solucion ordenada: %d en %d movimientos\n", is_all_sorted(&data), data.operations.size);
 					
 									
 					save_and_restart(&data, &solution, i);
@@ -113,9 +113,9 @@ int	main(int argc, char **argv)
 				break;
 			
 		}
-		print_solution(solution.start);
+		//print_solution(solution.start);
 		
-		//printf("Solucion seleccionada por funcion %d veces: %d\n", solution.func, solution.size);
+		printf("Solucion seleccionada por funcion %d veces: %d\n", solution.func, solution.size);
 		//print_stack(&solution, 'S');
 	}
 }
