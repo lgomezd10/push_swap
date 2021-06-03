@@ -59,8 +59,20 @@ void	selection_sort_b(t_data *data)
 			
 			if (stack->size > 1 && stack->start->pos_ord < stack->start->next->pos_ord)
 				swap_both(data);
-			else
+			else			
+				swap_a(data);
+		}
+		else if(stack->size > 1 && get_pos_of_nbr(stack, stack->bigger) > 20 && stack->end->pos_ord + 1 == get_pos_of_nbr(stack, stack->bigger))
+		{
+			reverse_rotate_b(data);
+			push_a(data);
+			nbr = data->stack_b.bigger;
+			move_up_b(data, nbr);
+			push_a(data);
 			
+			if (stack->size > 1 && stack->start->pos_ord < stack->start->next->pos_ord)
+				swap_both(data);
+			else			
 				swap_a(data);
 		}
 		else

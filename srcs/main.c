@@ -65,7 +65,8 @@ void load_functions(t_function **array_f)
 	array[i++] = merge_sort; //8
 	array[i++] = randix_sort; //9
 	*/
-	array[i++] = divition_sort; //9
+	array[i++] = divition_sort1; //9
+	array[i++] = divition_sort2; //9
 	*array_f = array;
 }
 

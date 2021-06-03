@@ -17,14 +17,25 @@ int has_elements_of_chunk(t_data *data, int chunk, int size)
 	temp = data->stack_a.start;
 	while (temp)
 	{
-		if (temp->pos_ord < get_max_of_chunk(data, chunk, size))
+		if (temp->pos_ord <= get_max_of_chunk(data, chunk, size))
 			return (1);
 		temp = temp->next;
 	}
 	return (0);
 }
 
-int get_size (t_data *data)
+int get_size1(t_data *data)
+{
+	int size;
+
+	if (data->sorted->size > 400)
+		size = 60;
+	else
+		size = data->sorted->size / 5;
+	return (size);
+}
+
+int get_size2(t_data *data)
 {
 	int size;
 
@@ -63,7 +74,7 @@ void try_swap(t_data *data)
 		swap_both(data);
 }
 
-void divition_sort(t_data *data)
+void divition_sort(t_data *data, int (*get_size)(t_data *))
 {
 	int chunk;
 	int size_div;
@@ -73,12 +84,12 @@ void divition_sort(t_data *data)
 	while (!a_is_sorted(data) && data->stack_a.size > 3)
 	{
 		//printf("antes\n");
-		printf("chunk %d max_chunk %d middle chunk %d\n", chunk, get_max_of_chunk(data, chunk, size_div), get_middle_of_chunk(data, chunk, size_div));
+		//printf("chunk %d max_chunk %d middle chunk %d\n", chunk, get_max_of_chunk(data, chunk, size_div), get_middle_of_chunk(data, chunk, size_div));
 		while (has_elements_of_chunk(data, chunk, size_div))
 		{
 			//print_stack(&data->stack_a, 'a');
 			//print_stack(&data->stack_a, 'a');
-			if (data->stack_a.start->pos_ord < get_max_of_chunk(data, chunk, size_div))
+			if (data->stack_a.start->pos_ord <= get_max_of_chunk(data, chunk, size_div))
 			{
 				push_b(data);
 				//if (data->stack_b.start->pos_ord <= get_middle_of_chunk(data, chunk, size_div))
@@ -98,14 +109,20 @@ void divition_sort(t_data *data)
 		}
 		chunk++;
 	}
-	printf("antes de mover abajo\n");
-	print_stack(&data->stack_a, 'a');
 	move_down_a(data, data->stack_a.bigger);
-	printf("antes de ordenar\n");
-	print_stack(&data->stack_a, 'a');
 	while (data->stack_b.size)
 	{
 		selection_sort_b(data);
 	}
 	
+}
+
+void divition_sort1(t_data *data)
+{
+	divition_sort(data, get_size1);
+}
+
+void divition_sort2(t_data *data)
+{
+	divition_sort(data, get_size2);
 }

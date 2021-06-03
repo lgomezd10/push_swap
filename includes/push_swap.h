@@ -118,5 +118,6 @@ void merge_a_select_sort(t_data *data);
 void merge_a_insert_select_sort(t_data *data);
 void selection_sort_a(t_data *data);
 void	merge_sort_2(t_data *data);
-void divition_sort(t_data *data);
+void divition_sort1(t_data *data);
+void divition_sort2(t_data *data);
 #endif
