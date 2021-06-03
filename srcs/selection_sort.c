@@ -6,7 +6,7 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 18:44:49 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/06/02 20:42:37 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/03 16:16:52 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void push_and_swap(t_data *data)
 	push_a(data);
 	nbr = data->stack_b.bigger;
 	move_up_b(data, nbr);
-	push_a(data);	
+	push_a(data);
 	if (needed_swap_b(data) && needed_swap_a(data))
 		swap_both(data);
 	else if (needed_swap_a(data))
@@ -63,9 +63,7 @@ void	selection_sort_b(t_data *data)
 	while (data->stack_b.size > 0)
 	{
 		if (stack->size > 1 && stack->start->pos_ord + 1 == get_pos_of_nbr(stack, stack->bigger))
-		{
 			push_and_swap(data);
-		}
 		else if(stack->size > 1 && get_pos_of_nbr(stack, stack->bigger) > 1
 			&& stack->end->pos_ord + 1 == get_pos_of_nbr(stack, stack->bigger))
 		{

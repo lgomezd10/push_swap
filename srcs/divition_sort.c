@@ -35,7 +35,7 @@ void divition_sort(t_data *data, int (*get_size)(t_data *))
 
 	chunk = 0;
 	size_div = get_size(data);
-	while (!a_is_sorted(data) && data->stack_a.size > 1)
+	while (!a_is_sorted(data) && data->stack_a.size > 0)
 	{
 		while (has_elements_of_chunk(data, chunk, size_div) && !a_is_sorted(data))
 		{
@@ -56,7 +56,6 @@ void divition_sort(t_data *data, int (*get_size)(t_data *))
 		chunk++;
 	}
 	move_down_a(data, data->stack_a.bigger);
-	print_stack(&data->stack_a, 'a');
 	while (data->stack_b.size)
 		selection_sort_b(data);
 }

@@ -107,7 +107,7 @@ void merge_sort_a(t_data *data);
 void merge_sort_b(t_data *data);
 void randix_sort(t_data *data);
 int a_is_sorted(t_data *data);
-int b_is_sorted(t_data *data);
+int	b_is_sorted(t_data *data);
 void divide_a(t_data *data);
 void selection_sort_b(t_data *data);
 int find_min_sort(t_data *data);
@@ -126,4 +126,5 @@ int get_max_of_chunk(t_data *data, int chunk, int size);
 int has_elements_of_chunk(t_data *data, int chunk, int size);
 int needed_swap_a(t_data *data);
 int needed_swap_b(t_data *data);
+void	bubble_sort_div(t_data *data);
 #endif

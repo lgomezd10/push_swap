@@ -6,7 +6,7 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 16:54:10 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/06/02 16:55:37 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/03 15:49:15 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	clear_data(t_data *data)
 
 void	save_and_restart(t_data *data, t_stack *op, int func)
 {
-	if ((!op->start || data->operations.size < op->size) && is_all_sorted(data))
+	if ((!op->start || data->operations.size < op->size))
 	{
 		if (op->start)
 			delete_list(&op->start);

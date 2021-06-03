@@ -6,7 +6,7 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 17:15:27 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/06/02 17:23:11 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/03 18:14:55 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	a_is_sorted(t_data *data)
 		if (act + 1 != next)
 		{
 			next = temp->next->nbr;
-			if (act != data->sorted->size - 1 || next != stack->smaller)
+			if (act != data->sorted->size - 1 || next != stack->smaller || stack->size < 3)
 				return (0);
 		}
 		temp = temp->next;
@@ -59,18 +59,21 @@ int	a_is_sorted(t_data *data)
 int	b_is_sorted(t_data *data)
 {
 	int			i;
+	t_stack		*stack;
 	t_lst_st	*temp;
 	int			act;
 	int			next;
 
-	temp = data->stack_b.start;
+	stack = &data->stack_b;
+	temp = stack->start;
 	while (temp && temp->next)
 	{
 		act = temp->pos_ord;
 		next = temp->next->pos_ord;
 		if (act != next + 1)
 		{
-			if (act != 0 || temp->next->nbr != data->stack_b.bigger)
+			next = temp->next->nbr;
+			if (act != 0 || next != stack->bigger || stack->size < 3)
 				return (0);
 		}
 		temp = temp->next;
@@ -86,9 +89,7 @@ int needed_swap_a(t_data *data)
 	if (data->stack_a.size > 1)
 	{
 		temp = data->stack_a.start;
-		if (temp->nbr == data->stack_a.bigger && temp->next->nbr == data->stack_a.smaller)
-			return (0);
-		if (temp->pos_ord > temp->next->pos_ord);
+		if (temp->pos_ord > temp->next->pos_ord)
 			return (1);
 	}
 	return (0);
@@ -103,8 +104,6 @@ int needed_swap_b(t_data *data)
 	if (data->stack_b.size > 1)
 	{
 		temp = data->stack_b.start;
-		if (temp->nbr == data->stack_b.smaller && temp->next->nbr == data->stack_b.bigger)
-			return (0);
 		if (temp->pos_ord < temp->next->pos_ord)
 			return (1);
 	}
