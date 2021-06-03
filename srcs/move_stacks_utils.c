@@ -6,7 +6,7 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 16:42:24 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/06/02 16:43:59 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/03 20:54:23 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	move_up_a(t_data *data, int nbr)
 	}
 }
 
-void move_up_b(t_data *data, int nbr)
+void	move_up_b(t_data *data, int nbr)
 {
 	int			found;
 	int			pos;

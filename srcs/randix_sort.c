@@ -6,11 +6,11 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 16:53:51 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/06/02 16:53:53 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/03 20:25:56 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/algorithms.h"
 
 void	randix_sort(t_data *data)
 {

@@ -6,15 +6,15 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 18:44:49 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/06/03 16:16:52 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/03 20:45:15 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/algorithms.h"
 
-int		get_pos_of_nbr(t_stack *stack, int nbr)
+static int	get_pos(t_stack *stack, int nbr)
 {
-	t_lst_st *temp;
+	t_lst_st	*temp;
 
 	temp = stack->start;
 	while (temp)
@@ -26,10 +26,10 @@ int		get_pos_of_nbr(t_stack *stack, int nbr)
 	return (-1);
 }
 
-static void push_and_swap(t_data *data)
+static void	push_and_swap(t_data *data)
 {
-	int nbr;
-	t_stack *stack;
+	int		nbr;
+	t_stack	*stack;
 
 	stack = &data->stack_b;
 	push_a(data);
@@ -56,16 +56,17 @@ void	selection_sort_a(t_data *data)
 
 void	selection_sort_b(t_data *data)
 {
-	int	nbr;
-	t_stack *stack;
+	int		nbr;
+	t_stack	*stack;
 
 	stack = &data->stack_b;
 	while (data->stack_b.size > 0)
 	{
-		if (stack->size > 1 && stack->start->pos_ord + 1 == get_pos_of_nbr(stack, stack->bigger))
+		if (stack->size > 1
+			&& stack->start->pos_ord + 1 == get_pos(stack, stack->bigger))
 			push_and_swap(data);
-		else if(stack->size > 1 && get_pos_of_nbr(stack, stack->bigger) > 1
-			&& stack->end->pos_ord + 1 == get_pos_of_nbr(stack, stack->bigger))
+		else if (stack->size > 1 && get_pos(stack, stack->bigger) > 1
+			&& stack->end->pos_ord + 1 == get_pos(stack, stack->bigger))
 		{
 			reverse_rotate_b(data);
 			push_and_swap(data);

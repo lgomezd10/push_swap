@@ -6,11 +6,11 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:51:44 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/06/02 17:24:52 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/03 20:26:13 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/algorithms.h"
 
 void	divide_a(t_data *data)
 {

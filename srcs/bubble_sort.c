@@ -6,11 +6,11 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:28:27 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/06/03 19:31:31 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/03 20:25:56 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/algorithms.h"
 
 void	check_head(t_data *data)
 {

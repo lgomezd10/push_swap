@@ -1,6 +1,4 @@
-#include "../includes/push_swap.h"
-
-
+#include "../includes/algorithms.h"
 
 int get_size1(t_data *data)
 {
@@ -71,19 +69,4 @@ void divition_sort(t_data *data, int (*get_size)(t_data *))
 	move_down_a(data, data->stack_a.bigger);
 	while (data->stack_b.size)
 		selection_sort_b(data);
-}
-
-void divition_sort1(t_data *data)
-{
-	divition_sort(data, get_size1);
-}
-
-void divition_sort2(t_data *data)
-{
-	divition_sort(data, get_size2);
-}
-
-void divition_sort3(t_data *data)
-{
-	divition_sort(data, get_size3);
 }

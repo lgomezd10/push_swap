@@ -6,7 +6,7 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 17:15:27 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/06/03 18:14:55 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/03 20:53:09 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int	a_is_sorted(t_data *data)
 		if (act + 1 != next)
 		{
 			next = temp->next->nbr;
-			if (act != data->sorted->size - 1 || next != stack->smaller || stack->size < 3)
+			if (act != data->sorted->size - 1 || next != stack->smaller
+				|| stack->size < 3)
 				return (0);
 		}
 		temp = temp->next;
@@ -81,10 +82,10 @@ int	b_is_sorted(t_data *data)
 	return (1);
 }
 
-int needed_swap_a(t_data *data)
+int	needed_swap_a(t_data *data)
 {
-	int needed;
-	t_lst_st *temp;
+	int			needed;
+	t_lst_st	*temp;
 
 	if (data->stack_a.size > 1)
 	{
@@ -95,18 +96,16 @@ int needed_swap_a(t_data *data)
 	return (0);
 }
 
-int needed_swap_b(t_data *data)
+int	needed_swap_b(t_data *data)
 {
-	int needed;
-	t_lst_st *temp;
+	int			needed;
+	t_lst_st	*temp;
 
-	
 	if (data->stack_b.size > 1)
 	{
 		temp = data->stack_b.start;
 		if (temp->pos_ord < temp->next->pos_ord)
 			return (1);
 	}
-	
 	return (0);
 }

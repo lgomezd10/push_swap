@@ -33,7 +33,8 @@ FILES = save_restart \
 	move_stacks_utils \
 	test_utils \
 	divition_sort \
-	divition_utils
+	divition_utils \
+	divition_versions
 
 SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
 

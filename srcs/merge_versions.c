@@ -6,25 +6,11 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 16:41:34 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/06/03 18:37:40 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/03 20:24:49 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
-
-void	merge_ab_select_sort(t_data *data)
-{
-	merge_sort_a(data);
-	merge_sort_b(data);
-	selection_sort(data);
-}
-
-void	merge_ab_insert_sort(t_data *data)
-{
-	merge_sort_a(data);
-	merge_sort_b(data);
-	insertion_sort(data);
-}
+#include "../includes/algorithms.h"
 
 void	merge_a_insert_sort(t_data *data)
 {

@@ -1,4 +1,4 @@
-#include "../includes/push_swap.h"
+#include "../includes/operations.h"
 
 void	swap_both(t_data *data)
 {
