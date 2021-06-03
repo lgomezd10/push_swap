@@ -22,7 +22,10 @@ int	is_all_sorted(t_data *data)
 	while (temp)
 	{
 		if (temp->pos_ord != i)
+		{
+			printf("******Falla en pos: %d nbr: %d i: %d\n", temp->pos_ord, temp->nbr, i);
 			return (0);
+		}
 		temp = temp->next;
 		i++;
 	}

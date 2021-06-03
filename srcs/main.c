@@ -100,7 +100,7 @@ int	main(int argc, char **argv)
 				print_stack(&data.operations, 'O');
 				
 				printf("solucion ordenada: %d en %d movimientos\n", is_all_sorted(&data), data.operations.size);
-				
+								
 				save_and_restart(&data, &solution, i);
 				
 				/*

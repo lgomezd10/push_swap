@@ -69,28 +69,28 @@ void divition_sort(t_data *data)
 	int size_div;
 
 	chunk = 0;
-	size_div = 50;
-	while (!a_is_sorted(data) && data->stack_a.size > 2)
+	size_div = get_size(data);
+	while (!a_is_sorted(data) && data->stack_a.size > 3)
 	{
 		//printf("antes\n");
-		//printf("chunk %d max_chunk %d middle chunk %d\n", chunk, get_max_of_chunk(data, chunk, size_div), get_middle_of_chunk(data, chunk, size_div));
-		while (has_elements_of_chunk(data, chunk, size_div) && !a_is_sorted(data))
+		printf("chunk %d max_chunk %d middle chunk %d\n", chunk, get_max_of_chunk(data, chunk, size_div), get_middle_of_chunk(data, chunk, size_div));
+		while (has_elements_of_chunk(data, chunk, size_div))
 		{
 			//print_stack(&data->stack_a, 'a');
 			//print_stack(&data->stack_a, 'a');
 			if (data->stack_a.start->pos_ord < get_max_of_chunk(data, chunk, size_div))
 			{
 				push_b(data);
-				if (data->stack_b.start->pos_ord < get_middle_of_chunk(data, chunk, size_div))
-					rotate_b(data);
-				/*
-				if (data->stack_b.start->pos_ord < get_middle_of_chunk(data, chunk, size_div))
+				//if (data->stack_b.start->pos_ord <= get_middle_of_chunk(data, chunk, size_div))
+				//	rotate_b(data);
+				
+				if (data->stack_b.start->pos_ord <= get_middle_of_chunk(data, chunk, size_div))
 				{
-					if (data->stack_a.start->pos_ord >= get_max_of_chunk(data, chunk, size_div))
+					if (data->stack_a.size > 1 && data->stack_a.start->pos_ord > get_max_of_chunk(data, chunk, size_div))
 						rotate_both(data);
 					else
 						rotate_b(data);
-				}*/
+				}
 			}
 			else
 				rotate_a(data);
@@ -98,6 +98,8 @@ void divition_sort(t_data *data)
 		}
 		chunk++;
 	}
+	printf("antes de mover abajo\n");
+	print_stack(&data->stack_a, 'a');
 	move_down_a(data, data->stack_a.bigger);
 	printf("antes de ordenar\n");
 	print_stack(&data->stack_a, 'a');
