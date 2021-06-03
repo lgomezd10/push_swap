@@ -28,6 +28,19 @@ int get_size2(t_data *data)
 	return (size);
 }
 
+int get_size3(t_data *data)
+{
+	int size;
+
+	if (data->sorted->size > 400)
+		size = 70;
+	else if(data->sorted->size >= 40)
+		size = data->sorted->size / 5;
+	else
+		size = 20;
+	return (size);
+}
+
 void divition_sort(t_data *data, int (*get_size)(t_data *))
 {
 	int chunk;
@@ -68,4 +81,9 @@ void divition_sort1(t_data *data)
 void divition_sort2(t_data *data)
 {
 	divition_sort(data, get_size2);
+}
+
+void divition_sort3(t_data *data)
+{
+	divition_sort(data, get_size3);
 }

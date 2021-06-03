@@ -6,7 +6,7 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 19:28:27 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/06/03 18:29:25 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:31:31 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	check_head(t_data *data)
 	}
 	if (stack_b->size > 2 && stack_b->start->nbr == stack_b->smaller)
 	{
-		if (stack_b->start->next->nbr == stack_b->smaller)
+		if (stack_b->start->next->nbr == stack_b->bigger)
 			need_rotb = 1;
 	}
 	if (need_rota && need_rotb)
@@ -67,7 +67,6 @@ void	bubble_sort_div(t_data *data)
 	move_up_a(data, stack->smaller);
 	while (data->stack_b.size)
 		push_a(data);
-	
 }
 
 void	bubble_sort(t_data *data)
@@ -90,5 +89,5 @@ void	bubble_sort(t_data *data)
 			rotate_a(data);
 		temp = stack->start;
 	}
-	move_down_a(data, stack->bigger);
+	move_up_a(data, stack->smaller);
 }
