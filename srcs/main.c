@@ -53,18 +53,15 @@ void load_functions(t_function **array_f)
 	if (!array)
 		show_error();
 	i = 0;	
-	/*
+	
 	array[i++] = bubble_sort;  //0
 	array[i++] = selection_sort; //1
 	array[i++] = insertion_sort; //2
-	array[i++] = merge_ab_select_sort; //3
-	array[i++] = merge_ab_insert_sort; //4   
 	array[i++] = merge_a_insert_sort; //5
 	array[i++] = merge_a_select_sort; //6
 	array[i++] = merge_a_insert_select_sort; //7
 	array[i++] = merge_sort; //8
 	array[i++] = randix_sort; //9
-	*/
 	array[i++] = divition_sort1; //9
 	array[i++] = divition_sort2; //9
 	*array_f = array;
@@ -93,30 +90,32 @@ int	main(int argc, char **argv)
 			load_stack(&data, argc, numbers);
 			if (!is_all_sorted(&data))
 			{
-				array_f[i](&data);
-				
-				printf("Despues de ejecutar la funcion %d\n", i);
-				print_stack(&data.stack_a, 'A');
-				print_stack(&data.stack_b, 'B');                
-				print_stack(&data.operations, 'O');
-				
-				printf("solucion ordenada: %d en %d movimientos\n", is_all_sorted(&data), data.operations.size);
-								
-				save_and_restart(&data, &solution, i);
-				
-				/*
-				printf("Solucion seleccionada\n");
-				print_stack(&solution, 'S');
-				*/
+					array_f[i](&data);
+					/*
+					printf("Despues de ejecutar la funcion %d\n", i);
+					print_stack(&data.stack_a, 'A');
+					print_stack(&data.stack_b, 'B');     
+					*/           
+					//print_stack(&data.operations, 'O');
+					
+					//printf("solucion ordenada: %d en %d movimientos\n", is_all_sorted(&data), data.operations.size);
+					
+									
+					save_and_restart(&data, &solution, i);
+					
+					/*
+					printf("Solucion seleccionada\n");
+					print_stack(&solution, 'S');
+					*/				
 				i++;
 			}
 			else
 				break;
 			
 		}
-		//print_solution(solution.start);
+		print_solution(solution.start);
 		
-		printf("Solucion seleccionada por funcion %d veces: %d\n", solution.func, solution.size);
+		//printf("Solucion seleccionada por funcion %d veces: %d\n", solution.func, solution.size);
 		//print_stack(&solution, 'S');
 	}
 }

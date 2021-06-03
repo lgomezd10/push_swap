@@ -40,7 +40,7 @@ void	clear_data(t_data *data)
 
 void	save_and_restart(t_data *data, t_stack *op, int func)
 {
-	if (!op->start || data->operations.size < op->size)
+	if ((!op->start || data->operations.size < op->size) && is_all_sorted(data))
 	{
 		if (op->start)
 			delete_list(&op->start);

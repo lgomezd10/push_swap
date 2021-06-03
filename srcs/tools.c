@@ -22,10 +22,7 @@ int	is_all_sorted(t_data *data)
 	while (temp)
 	{
 		if (temp->pos_ord != i)
-		{
-			printf("******Falla en pos: %d nbr: %d i: %d\n", temp->pos_ord, temp->nbr, i);
 			return (0);
-		}
 		temp = temp->next;
 		i++;
 	}
@@ -42,6 +39,8 @@ int	a_is_sorted(t_data *data)
 
 	stack = &data->stack_a;
 	temp = stack->start;
+	if (stack->bigger != data->sorted->array[data->sorted->size - 1])
+		return (0);
 	while (temp && temp->next)
 	{
 		act = temp->pos_ord;
@@ -79,3 +78,32 @@ int	b_is_sorted(t_data *data)
 	return (1);
 }
 
+int needed_swap_a(t_data *data)
+{
+	int needed;
+	t_lst_st *temp;
+
+	if (data->stack_a.size > 1)
+	{
+		temp = data->stack_a.start;
+		if (temp->pos_ord > temp->next->pos_ord);
+			return (1);
+	}
+	return (0);
+}
+
+int needed_swap_b(t_data *data)
+{
+	int needed;
+	t_lst_st *temp;
+
+	
+	if (data->stack_b.size > 1)
+	{
+		temp = data->stack_b.start;
+		if (temp->pos_ord < temp->next->pos_ord)
+			return (1);
+	}
+	
+	return (0);
+}

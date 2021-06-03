@@ -120,4 +120,10 @@ void selection_sort_a(t_data *data);
 void	merge_sort_2(t_data *data);
 void divition_sort1(t_data *data);
 void divition_sort2(t_data *data);
+int		get_pos_of_nbr(t_stack *stack, int nbr);
+int get_middle_of_chunk(t_data *data, int chunk, int size);
+int get_max_of_chunk(t_data *data, int chunk, int size);
+int has_elements_of_chunk(t_data *data, int chunk, int size);
+int needed_swap_a(t_data *data);
+int needed_swap_b(t_data *data);
 #endif
