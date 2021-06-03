@@ -46,25 +46,29 @@ void	selection_sort_b(t_data *data)
 	stack = &data->stack_b;
 	while (data->stack_b.size > 0)
 	{
-		/*
-		printf("prueba 1\n");
-		printf("pureba %d\n", get_pos_of_nbr(stack, stack->bigger));
-		if (stack->start->pos_ord + 1 == get_pos_of_nbr(stack, stack->bigger))
+		
+		//printf("prueba 1\n");
+		//printf("pureba %d\n", get_pos_of_nbr(stack, stack->bigger));
+		
+		if (stack->size > 1 && stack->start->pos_ord + 1 == get_pos_of_nbr(stack, stack->bigger))
 		{
 			push_a(data);
 			nbr = data->stack_b.bigger;
 			move_up_b(data, nbr);
-			if (stack->start->pos_ord < stack->start->next->pos_ord)
+			push_a(data);
+			
+			if (stack->size > 1 && stack->start->pos_ord < stack->start->next->pos_ord)
 				swap_both(data);
 			else
+			
 				swap_a(data);
 		}
 		else
-		{*/
+		{
 			nbr = data->stack_b.bigger;
 			move_up_b(data, nbr);
 			push_a(data);
-		//}
+		}
 	}
 }
 
