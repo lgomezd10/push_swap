@@ -39,13 +39,12 @@ int get_size3(t_data *data)
 	return (size);
 }
 
-void divition_sort(t_data *data, int (*get_size)(t_data *))
+void divition_sort(t_data *data, int size_div)
 {
 	int chunk;
-	int size_div;
 
 	chunk = 0;
-	size_div = get_size(data);
+	//size_div = get_size(data);
 	while (!a_is_sorted(data) && data->stack_a.size > 0)
 	{
 		while (has_elements_of_chunk(data, chunk, size_div) && !a_is_sorted(data))
@@ -65,8 +64,43 @@ void divition_sort(t_data *data, int (*get_size)(t_data *))
 				rotate_a(data);
 		}
 		chunk++;
-	}
+	}/*
+	printf("antes de mover\n");
+	print_stack(&data->stack_a, 'a');
+	print_stack(&data->stack_b, 'b');
+	*/
 	move_down_a(data, data->stack_a.bigger);
+	
 	while (data->stack_b.size)
 		selection_sort_b(data);
+}
+
+void divition_func_2(t_data *data, t_solution *solution, int i)
+{
+	int size = 40;
+	divition_sort(data, size);
+	printf("solucion size: %d ordenada: %d en %d movimientos\n", size, is_all_sorted(data), data->operations.size);
+	save_and_restart(data, solution, i);
+}
+
+void divition_func(t_data *data, t_solution *solution, int i)
+{
+	int size;
+	int	size_stack;
+
+	size = 10;
+	size_stack = data->sorted->size;
+	divition_sort(data, 10);
+	//printf("solucion size: %d ordenada: %d en %d movimientos\n", size, is_all_sorted(data), data->operations.size);
+	save_and_restart(data, solution, i);
+	size += 10;
+	while (size < 100 && size <= size_stack)
+	{
+		load_stack(data, *solution);
+		divition_sort(data, size);
+		//printf("solucion size: %d ordenada: %d en %d movimientos\n", size, is_all_sorted(data), data->operations.size);
+		size += 5;
+		i++;
+		save_and_restart(data, solution, i);
+	}
 }

@@ -39,7 +39,11 @@ int	a_is_sorted(t_data *data)
 
 	stack = &data->stack_a;
 	temp = stack->start;
+	if (!stack->size)
+		return (1);
 	if (stack->bigger != data->sorted->array[data->sorted->size - 1])
+		return (0);
+	if (stack->end->nbr != stack->bigger && stack->end->pos_ord + 1 != temp->pos_ord)
 		return (0);
 	while (temp && temp->next)
 	{
@@ -67,6 +71,10 @@ int	b_is_sorted(t_data *data)
 
 	stack = &data->stack_b;
 	temp = stack->start;
+	if (!stack->size)
+		return (1);
+	if (stack->end->nbr != stack->smaller && stack->end->pos_ord != temp->pos_ord + 1)
+		return (0);
 	while (temp && temp->next)
 	{
 		act = temp->pos_ord;

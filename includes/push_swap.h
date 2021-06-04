@@ -68,14 +68,21 @@ typedef struct s_data
 	int		func;
 }	t_data;
 
+typedef struct s_solution
+{
+	t_stack solution;
+	int		argc;
+	char	**argv;
+} t_solution;
+
 typedef void (*t_function)(t_data *);
 
 void		print_stack(t_stack *stack, char name);
 void		print_array(t_data *data);
 t_lst_st	*add_new_back(t_stack *stack, int nbr);
-void		load_stack(t_data *data, int argc, char **argv);
+void		load_stack(t_data *data, t_solution sol);
 void		show_error(void);
-void		save_and_restart(t_data *data, t_stack *op, int func);
+void		save_and_restart(t_data *data, t_solution *sol, int func);
 int			is_all_sorted(t_data *data);
 void		swap_a(t_data *data);
 void		push_a(t_data *data);
@@ -102,4 +109,5 @@ void		bubble_sort_div(t_data *data);
 void		divition_sort1(t_data *data);
 void		divition_sort2(t_data *data);
 void		divition_sort3(t_data *data);
+void		divition_func(t_data *data, t_solution *solution, int i);
 #endif

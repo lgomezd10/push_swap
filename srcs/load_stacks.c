@@ -12,21 +12,23 @@
 
 #include "../includes/push_swap.h"
 
-void	load_stack(t_data *data, int argc, char **argv)
+void	load_stack(t_data *data, t_solution sol)
 {
 	t_list	*list;
 	int		nbr;
 	int		i;
+	char	**argv;
 
+	argv = sol.argv;
 	i = 1;
-	if (argc == 2)
+	if (sol.argc == 2)
 	{
-		argc = 0;
-		while (argv[argc])
-			argc++;
+		sol.argc = 0;
+		while (argv[sol.argc])
+			sol.argc++;
 		i = 0;
 	}
-	while (i < argc)
+	while (i < sol.argc)
 	{
 		if (ft_str_is_nbr(argv[i]))
 		{

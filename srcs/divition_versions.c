@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/algorithms.h"
-
+/*
 void	divition_sort1(t_data *data)
 {
 	divition_sort(data, get_size1);
@@ -26,3 +26,4 @@ void	divition_sort3(t_data *data)
 {
 	divition_sort(data, get_size3);
 }
+*/
