@@ -28,10 +28,8 @@ void	swap_a(t_data *data)
 
 void	push_a(t_data *data)
 {
-	t_stack	*stack;
 	t_stack	*operations;
 
-	stack = &data->stack_a;
 	if (data->stack_b.size)
 	{
 		operations = &data->operations;

@@ -37,7 +37,6 @@ int	get_middle(t_data *data)
 	int		i;
 	int		pos;
 	int		to_short;
-	int		middle;
 	t_stack	stack;
 
 	if (data->sorted)

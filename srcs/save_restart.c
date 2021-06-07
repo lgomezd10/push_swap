@@ -40,7 +40,7 @@ void	clear_data(t_data *data)
 
 void	save_and_restart(t_data *data, t_solution *sol, int func)
 {
-	t_stack *op;
+	t_stack	*op;
 
 	op = &sol->solution;
 	if ((!op->start || data->operations.size < op->size))

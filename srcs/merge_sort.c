@@ -23,7 +23,7 @@ void	merge_sort_a(t_data *data)
 	size = stack->size;
 	if (!a_is_sorted(data))
 	{
-		middle = get_middle_temp(data, stack);
+		middle = get_middle_temp(stack);
 		temp = data->stack_a.start;
 		while (temp && size-- && !a_is_sorted(data))
 		{
@@ -49,7 +49,7 @@ void	merge_sort_b(t_data *data)
 	size = stack->size;
 	if (stack->size > 1)
 	{
-		middle = get_middle_temp(data, stack);
+		middle = get_middle_temp(stack);
 		temp = data->stack_b.start;
 		while (temp && size--)
 		{

@@ -29,9 +29,7 @@ static int	get_pos(t_stack *stack, int nbr)
 static void	push_and_swap(t_data *data)
 {
 	int		nbr;
-	t_stack	*stack;
 
-	stack = &data->stack_b;
 	push_a(data);
 	nbr = data->stack_b.bigger;
 	move_up_b(data, nbr);

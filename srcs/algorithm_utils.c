@@ -14,18 +14,16 @@
 
 void	divide_a(t_data *data)
 {
-	// VER SI SE QUEDA
 	t_stack		*stack;
 	t_lst_st	*temp;
 	int			middle;
-	int			i;
 	int			size;
 
 	stack = &data->stack_a;
 	size = stack->size;
 	if (!is_all_sorted(data))
 	{
-		middle = get_middle_temp(data, stack);
+		middle = get_middle_temp(stack);
 		temp = data->stack_a.start;
 		while (temp && size)
 		{

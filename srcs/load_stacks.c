@@ -14,8 +14,6 @@
 
 void	load_stack(t_data *data, t_solution sol)
 {
-	t_list	*list;
-	int		nbr;
 	int		i;
 	char	**argv;
 
@@ -31,10 +29,7 @@ void	load_stack(t_data *data, t_solution sol)
 	while (i < sol.argc)
 	{
 		if (ft_str_is_nbr(argv[i]))
-		{
-			nbr = ft_atoi(argv[i]);
-			add_new_back(&data->stack_a, nbr);
-		}
+			add_new_back(&data->stack_a, ft_atoi(argv[i]));
 		else
 			show_error();
 		i++;

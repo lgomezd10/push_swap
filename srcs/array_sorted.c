@@ -83,7 +83,7 @@ void	sort_array(t_data *data)
 	}
 }
 
-int	get_middle_temp(t_data *data, t_stack *stack)
+int	get_middle_temp(t_stack *stack)
 {
 	int	*sorted;
 	int	i;
