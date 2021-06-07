@@ -6,18 +6,19 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 15:31:47 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/05/24 20:16:30 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/07 16:04:47 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int is_in_range(char *str)
+int	is_in_range(char *str)
 {
-	int len;
-	int nbr;
-	char *copy;
+	int		len;
+	int		nbr;
+	char	*copy;
+
 	len = ft_strlen(str);
 	if ((str[0] != '-' && len > 10) || len > 11)
 		return (0);
@@ -42,7 +43,7 @@ int is_in_range(char *str)
 
 int	ft_str_is_nbr(char *str)
 {
-	char *temp;
+	char	*temp;
 
 	temp = str;
 	if (*str != '-' && *str != '+' && !ft_isdigit(*str))

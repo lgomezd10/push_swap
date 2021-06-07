@@ -49,13 +49,10 @@ OBJSMAINBONUS =${MAINBONUS:.c=.o}
 ${NAME}: ${LIFBT} ${OBJS} ${OBJSMAIN}
 	gcc -o ${NAME} ${OBJSMAIN} ${OBJS} ${LIFBT}
 
+all: ${NAME}
+
 bonus: ${LIFBT} ${OBJS} ${OBJSMAINBONUS}
 	gcc -o ${NAME_BONUS} ${OBJSMAINBONUS} ${OBJS} ${LIFBT}
-
-testc: clean test
-
-test:	${LIFBT} ${OBJS}
-	gcc -o test test.c ${OBJS} ${LIFBT}
 
 ${LIFBT}:
 	${MAKE} bonus -C ${DIRLIBFT}
@@ -64,9 +61,10 @@ clean:
 	${RM} ${OBJS}
 	${RM} ${OBJSMAIN}
 	${RM} ${OBJSMAINBONUS}
+	${MAKE} fclean -C ${DIRLIBFT}
 
 fclean:	clean
-	${MAKE} fclean -C ${DIRLIBFT}	
 	${RM} ${NAME}
 	${RM} ${NAME_BONUS}
 
+re:	fclean all
