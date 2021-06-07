@@ -6,7 +6,7 @@
 /*   By: lgomez-d <lgomez-d@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 16:05:24 by lgomez-d          #+#    #+#             */
-/*   Updated: 2021/06/07 16:06:36 by lgomez-d         ###   ########.fr       */
+/*   Updated: 2021/06/07 19:19:12 by lgomez-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,38 @@ void load_functions(t_function **array_f)
 	*array_f = array;
 }
 
+static void	run_functions(t_data *data, t_solution *solution)
+{
+	t_function	*array_f;
+	int			i;
+
+	i = 0;
+	load_functions(&array_f);
+	if (!is_all_sorted(data))
+	{
+		while (array_f[i] != 0)
+		{
+			if (array_f[i] == randix_sort || data->sorted->size < 300)
+			{
+				array_f[i](data);
+					/*
+					printf("Despues de ejecutar la funcion %d\n", i);
+					print_stack(&data.stack_a, 'A');
+					print_stack(&data.stack_b, 'B');     
+					*/
+					//print_stack(&data.operations, 'O');
+					//printf("solucion ordenada: %d en %d movimientos\n", is_all_sorted(&data), data.operations.size);
+					
+				save_and_restart(data, solution, i);
+				load_stack(data, *solution);
+			}
+			i++;
+		}
+		quick_sort(data, solution, i);
+		free(array_f);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	int			i;
@@ -99,35 +131,8 @@ int	main(int argc, char **argv)
 		solution.argv = numbers;
 		i = 0;
 		load_stack(&data, solution);
-		if (!is_all_sorted(&data))
-		{
-			while (array_f[i] != 0)
-			{
-				if (array_f[i] == randix_sort || data.sorted->size < 300)
-				{
-					array_f[i](&data);
-						/*
-					printf("Despues de ejecutar la funcion %d\n", i);
-					print_stack(&data.stack_a, 'A');
-					print_stack(&data.stack_b, 'B');     
-					*/
-					//print_stack(&data.operations, 'O');
-					//printf("solucion ordenada: %d en %d movimientos\n", is_all_sorted(&data), data.operations.size);
-					
-									
-					save_and_restart(&data, &solution, i);
-					load_stack(&data, solution);
-						
-						/*
-						printf("Solucion seleccionada\n");
-						print_stack(&solution, 'S');	*/
-				}
-				i++;
-			}
-			quick_sort(&data, &solution, i);
-		}
-		print_solution(solution.solution.start);
-		
+		run_functions(&data, &solution);
+		print_solution(solution.solution.start);		
 		//printf("Solucion seleccionada por funcion %d veces: %d\n", solution.solution.func, solution.solution.size);
 		//print_stack(&solution, 'S');
 	}
