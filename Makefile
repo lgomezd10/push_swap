@@ -32,9 +32,8 @@ FILES = save_restart \
 	randix_sort \
 	move_stacks_utils \
 	test_utils \
-	divition_sort \
-	divition_utils \
-	divition_versions
+	quick_utils \
+	quick_sort
 
 SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
 

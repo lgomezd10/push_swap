@@ -38,8 +38,4 @@ int			get_max_of_chunk(t_data *data, int chunk, int size);
 int			has_elements_of_chunk(t_data *data, int chunk, int size);
 int			needed_swap_a(t_data *data);
 int			needed_swap_b(t_data *data);
-int			get_size1(t_data *data);
-int			get_size2(t_data *data);
-int			get_size3(t_data *data);
-//void		divition_sort(t_data *data, int (*get_size)(t_data *));
 #endif

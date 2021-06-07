@@ -106,8 +106,5 @@ void		merge_a_select_sort(t_data *data);
 void		merge_a_insert_select_sort(t_data *data);
 void		bubble_sort(t_data *data);
 void		bubble_sort_div(t_data *data);
-void		divition_sort1(t_data *data);
-void		divition_sort2(t_data *data);
-void		divition_sort3(t_data *data);
-void		divition_func(t_data *data, t_solution *solution, int i);
+void		quick_sort(t_data *data, t_solution *solution, int i);
 #endif
