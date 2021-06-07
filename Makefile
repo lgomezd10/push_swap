@@ -17,6 +17,7 @@ FILES = save_restart \
 	load_stacks \
 	lists \
 	tools \
+	tools2 \
 	operations \
 	operations_a \
 	operations_b \
@@ -36,6 +37,8 @@ FILES = save_restart \
 	quick_sort
 
 SRCS = ${addsuffix .c, ${addprefix srcs/, ${FILES}}}
+
+CFLAGS	= -Wall -Wextra -Werror
 
 OBJS =${SRCS:.c=.o}
 
